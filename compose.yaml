@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=revup'
+      - 'POSTGRES_PASSWORD=revup'
+      - 'POSTGRES_USER=revup'
+    ports:
+      - '5433:5432'

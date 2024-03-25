@@ -1,4 +1,4 @@
-package dev.michalzub.RevUpRental;
+package dev.michalzub.revuprental;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
