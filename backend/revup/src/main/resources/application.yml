@@ -1,0 +1,31 @@
+#spring.application.name=revup
+#spring.jpa.open-in-view=false
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/revup
+    username: revup-rental
+    password: revup-rental
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+application:
+  security:
+    jwt:
+      secret-key: 414E635266556A586E3272357538782F413F4428472B4B6250645367566B5971
+      expiration: 8640000
+
+springdoc:
+  default-consumes-media-type: application/json
+
+server:
+  servlet:
+    context-path: /api/v1/
+
