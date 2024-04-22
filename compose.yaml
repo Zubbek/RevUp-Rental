@@ -1,0 +1,16 @@
+services:
+  postgres:
+    container_name: db_postgres
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=revup-rental'
+      - 'POSTGRES_PASSWORD=revup-rental'
+      - 'POSTGRES_USER=revup-rental'
+    volumes:
+      - postgre_volume:/data/postgres
+    ports:
+      - '5433:5432'
+
+volumes:
+  postgre_volume:
+    driver: local
