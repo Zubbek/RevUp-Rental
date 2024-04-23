@@ -1,10 +1,5 @@
 <section class=" flex justify-center items-center" style="background-image: url('/assets/images/background3.jpg'); background-size: cover; background-position: center;">
   <div class="flex flex-col items-center justify-center px-20 py-8 mx-7 md:h-screen lg:py-0">
-    <!--    <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">-->
-    <!--      <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo">-->
-    <!--      Flowbite-->
-    <!--    </a>-->
-<!--    filter: brightness(0.7)-->
     <div class="w-full bg-black bg-opacity-25 md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:bg-opacity-80 dark:border-gray-700">
       <div class="flex justify-center items-center">
         <img class="w-44 h-50 " src="/assets/images/2-removebg-preview.png" alt="logo">
@@ -16,11 +11,11 @@
         <form class="space-y-4 md:space-y-6" action="#">
           <div>
             <label for="email" class="block mb-2 text-sm font-medium text-gray-50 dark:text-white">Your email</label>
-            <input type="email" name="email" id="email" class="bg-transparent border border-black focus:border-white text-white placeholder-amber-100 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-950 dark:border-gray-950 dark:placeholder-black-950 dark:text-white dark:focus:ring-black dark:focus:border-black" placeholder="name@company.com" required="">
+            <input [(ngModel)]="authRequest.email" type="email" name="email" id="email" class="bg-transparent border border-black focus:border-white text-white placeholder-amber-100 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-950 dark:border-gray-950 dark:placeholder-black-950 dark:text-white dark:focus:ring-black dark:focus:border-black" placeholder="name@company.com" required="">
           </div>
           <div>
             <label for="password" class="block mb-2 text-sm font-medium text-gray-50 dark:text-white">Password</label>
-            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-transparent border placeholder-amber-100 border-black focus:border-white text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-950 dark:border-gray-950 dark:placeholder-black-950 dark:text-white dark:focus:ring-black dark:focus:border-black" required="">
+            <input [(ngModel)]="authRequest.password" type="password" name="password" id="password" placeholder="••••••••" class="bg-transparent border placeholder-amber-100 border-black focus:border-white text-white sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-950 dark:border-gray-950 dark:placeholder-black-950 dark:text-white dark:focus:ring-black dark:focus:border-black" required="">
           </div>
           <div class="flex items-start">
             <div class="ml-3 text-sm">
@@ -28,7 +23,7 @@
             </div>
           </div>
           <div>
-            <button type="submit" class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login</button>
+            <button (click)="login()" type="submit" class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login</button>
           </div>
           <p class="text-sm font-light text-gray-50 dark:text-gray-50">
             Don't have an account? <a href="/register" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Register here</a>

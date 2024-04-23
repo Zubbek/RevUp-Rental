@@ -8,7 +8,9 @@ import MOTORCYCLES from "./motorcycles/motorcycle-data";
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
+
 })
+
 export class AppComponent {
   title = 'frontend';
   motorcycles = MOTORCYCLES;
