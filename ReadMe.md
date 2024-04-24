@@ -24,4 +24,5 @@ The main pourpose of this app is to lern more about Java and Angular as it is my
 
 ## Screenshot
 
-![Zrzut ekranu 2024-04-24 o 14.47.32.png](..%2F..%2FDesktop%2FZrzut%20ekranu%202024-04-24%20o%2014.47.32.png)
+<img width="403" alt="Zrzut ekranu 2024-04-24 o 14 47 32" src="https://github.com/Zubbek/RevUp-Rental/assets/129663845/af9f0253-b212-4e26-b164-75070f1af1f3">
+
