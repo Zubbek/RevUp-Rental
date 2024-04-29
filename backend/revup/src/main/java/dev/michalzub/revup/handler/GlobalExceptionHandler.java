@@ -1,6 +1,7 @@
 package dev.michalzub.revup.handler;
 
 import jakarta.mail.MessagingException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
@@ -26,6 +27,29 @@ public class GlobalExceptionHandler {
         ExceptionResponse.builder()
           .businessErrorCode(ACCOUNT_LOCKED.getCode())
           .businessErrorDescription(ACCOUNT_LOCKED.getDescription())
+          .error(exp.getMessage())
+          .build()
+      );
+  }
+
+  @ExceptionHandler(DataIntegrityViolationException.class)
+  public ResponseEntity<ExceptionResponse> handleDuplicateEmail(DataIntegrityViolationException exp) {
+    if (exp.getMessage().contains("uk_6dotkott2kjsp8vw4d0m25fb7")) {
+      return ResponseEntity
+        .status(FORBIDDEN)
+        .body(
+          ExceptionResponse.builder()
+            .businessErrorCode(DUPLICATE_CREDENTIALS.getCode())
+            .businessErrorDescription(DUPLICATE_CREDENTIALS.getDescription())
+            .error(DUPLICATE_CREDENTIALS.getDescription())
+            .build()
+        );
+    }
+    return ResponseEntity
+      .status(INTERNAL_SERVER_ERROR)
+      .body(
+        ExceptionResponse.builder()
+          .businessErrorDescription("Internal error, please contact the admin")
           .error(exp.getMessage())
           .build()
       );
