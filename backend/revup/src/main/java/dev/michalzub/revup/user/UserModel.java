@@ -1,5 +1,7 @@
 package dev.michalzub.revup.user;
 
+import dev.michalzub.revup.favourites.FavouritesModel;
+import dev.michalzub.revup.reservation.ReservationModel;
 import dev.michalzub.revup.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -43,6 +45,10 @@ public class UserModel implements UserDetails, Principal {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
+    @OneToMany(mappedBy = "user")
+    private List<ReservationModel> reservations;
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<FavouritesModel> favourites;
 
     private boolean locked;
 
