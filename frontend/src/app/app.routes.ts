@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import {LandingPageComponent} from "./landing-page/landing-page.component";
@@ -7,6 +7,7 @@ import {ReservationComponent} from "./reservation/reservation.component";
 import {MotorcyclesComponent} from "./motorcycles/motorcycles.component";
 import {FavouritesComponent} from "./favourites/favourites.component";
 import {AdminComponent} from "./admin/admin.component";
+import {NgModule} from "@angular/core";
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -14,7 +15,14 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   {path: 'home', component: HomeComponent},
   {path: 'reservation', component: ReservationComponent},
-  {path: 'motorcycles', component: MotorcyclesComponent},
+  {path: 'motorcycles/:categoryName', component: MotorcyclesComponent },
   {path: 'favourites', component: FavouritesComponent},
-  {path: 'admin', component: AdminComponent}
+  {path: 'admin', component: AdminComponent},
+  { path: '**', redirectTo: '' }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
