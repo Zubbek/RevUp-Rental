@@ -36,8 +36,7 @@
     <p class="mb-2 text-xl font-bold tracking-tight text-white dark:text-white px-10 my-10 ">Here are the best {{ categoryName }}-bikes</p>
   </div>
   <div class="grid grid-cols-2 md:grid-cols-4 gap-10 m-8">
-    @for (motorcycle of motorcycles; track motorcycle.id) {
-      <div class="max-w-sm bg-white bg-opacity-70 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div *ngFor="let motorcycle of motorcycles" class="max-w-sm bg-white bg-opacity-70 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href="#">
           <img class="rounded-t-lg" src="{{motorcycle.image}}" alt="" />
         </a>
@@ -46,6 +45,7 @@
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Yamaha</h5>
           </a>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{motorcycle.modelName}}</p>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{motorcycle.articleId }}</p>
           <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Check out
             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -54,7 +54,6 @@
           </a>
         </div>
       </div>
-    }
   </div>
 
   <!--footer-->
