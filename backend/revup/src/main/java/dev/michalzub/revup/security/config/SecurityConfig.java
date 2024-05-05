@@ -28,7 +28,9 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req ->
-                        req.requestMatchers(
+
+                        req.requestMatchers("/admin").hasAuthority("ADMIN")
+                                .requestMatchers(
                                         "/auth/**",
                                         "/v2/api-docs",
                                         "/v3/api-docs",
@@ -41,8 +43,7 @@ public class SecurityConfig {
                                         "/webjars/**",
                                         "/swagger-ui.html",
                                         "/api/v1/login",
-                                        "/api/v1/register",
-                                        "/api/v1/"
+                                        "/api/v1/register"
                                 )
                                 .permitAll()
                                 .anyRequest()
