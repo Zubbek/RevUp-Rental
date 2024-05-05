@@ -47,6 +47,25 @@ export class CategoryService {
     }
   }
 
+  async fetchImage(articleID: string) {
+    const options = {
+      method: 'GET',
+      url: `https://motorcycle-specs-database.p.rapidapi.com/article/${articleID}/image/link`,
+      headers: {
+        'X-RapidAPI-Key': environment.rapidApiKey,
+        'X-RapidAPI-Host': environment.rapidApiHost
+      }
+    };
+
+    try {
+      const response = await axios.request(options);
+      return response.data; // Zwróć dane obrazka
+    } catch (error) {
+      console.error(error);
+      return null; // Jeśli wystąpił błąd, zwróć null
+    }
+  }
+
   async getSpecs() {
     const options = {
       method: 'GET',
