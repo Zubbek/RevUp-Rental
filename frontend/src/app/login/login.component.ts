@@ -36,11 +36,18 @@ export class LoginComponent {
       body: this.authRequest
     }).subscribe({
       next: (res) => {
+        console.log("Odpowiedź z serwera:", res);
         this.tokenService.token = res.token as string;
-        this.router.navigate(['home']);
+        console.log("token: ", this.tokenService.token)
+        const userRoles = this.tokenService.userRoles;
+        if (userRoles.includes('ADMIN')) {
+          this.router.navigate(['/admin']);
+        } else {
+          this.router.navigate(['/home']);
+        }
       },
       error: (err) => {
-        console.log(err);
+        console.log("Błąd: ", err);
         if (err.error.validationErrors) {
           this.errorMsg = err.error.validationErrors;
         } else {

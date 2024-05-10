@@ -468,12 +468,44 @@
         }
       }
     },
-    "/userModels/search/findByEmail": {
+    "/userModels/search/findAllByRolesContains": {
       "get": {
         "tags": [
           "user-model-search-controller"
         ],
         "operationId": "executeSearch-usermodel-get",
+        "parameters": [
+          {
+            "name": "role",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Role"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/hal+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CollectionModelEntityModelUserModel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/userModels/search/findByEmail": {
+      "get": {
+        "tags": [
+          "user-model-search-controller"
+        ],
+        "operationId": "executeSearch-usermodel-get_1",
         "parameters": [
           {
             "name": "email",
@@ -906,6 +938,91 @@
         }
       }
     },
+    "/admin": {
+      "get": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "getAllUsers",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/hal+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "updateUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/hal+json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "user-controller"
+        ],
+        "operationId": "deleteUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/hal+json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/auth/register": {
       "post": {
         "tags": [
@@ -1081,14 +1198,14 @@
           "accountNonLocked": {
             "type": "boolean"
           },
+          "username": {
+            "type": "string"
+          },
           "authorities": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/GrantedAuthority"
             }
-          },
-          "username": {
-            "type": "string"
           },
           "credentialsNonExpired": {
             "type": "boolean"
@@ -1098,11 +1215,105 @@
           }
         }
       },
+      "FavouritesModel": {
+        "type": "object"
+      },
       "GrantedAuthority": {
         "type": "object",
         "properties": {
           "authority": {
             "type": "string"
+          }
+        }
+      },
+      "ReservationModel": {
+        "type": "object"
+      },
+      "Role": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastModifiedDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "UserModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            }
+          },
+          "reservations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ReservationModel"
+            }
+          },
+          "favourites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FavouritesModel"
+            }
+          },
+          "locked": {
+            "type": "boolean"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "lastModifiedDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "name": {
+            "type": "string"
+          },
+          "accountNonExpired": {
+            "type": "boolean"
+          },
+          "accountNonLocked": {
+            "type": "boolean"
+          },
+          "username": {
+            "type": "string"
+          },
+          "authorities": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GrantedAuthority"
+            }
+          },
+          "credentialsNonExpired": {
+            "type": "boolean"
           }
         }
       },
@@ -1178,6 +1389,25 @@
                 "type": "array",
                 "items": {
                   "type": "object"
+                }
+              }
+            }
+          },
+          "_links": {
+            "$ref": "#/components/schemas/Links"
+          }
+        }
+      },
+      "CollectionModelEntityModelUserModel": {
+        "type": "object",
+        "properties": {
+          "_embedded": {
+            "type": "object",
+            "properties": {
+              "userModels": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EntityModelUserModel"
                 }
               }
             }
@@ -1267,6 +1497,18 @@
               "type": "string"
             }
           },
+          "reservations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "favourites": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "locked": {
             "type": "boolean"
           },
@@ -1290,14 +1532,14 @@
           "accountNonLocked": {
             "type": "boolean"
           },
+          "username": {
+            "type": "string"
+          },
           "authorities": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/GrantedAuthority"
             }
-          },
-          "username": {
-            "type": "string"
           },
           "credentialsNonExpired": {
             "type": "boolean"
@@ -1392,8 +1634,5 @@
         }
       }
     }
-  },
-  "security": [],
-  "externalDocs": {},
-  "tags": []
+  }
 }
