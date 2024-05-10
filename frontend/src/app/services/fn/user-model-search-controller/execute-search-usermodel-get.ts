@@ -6,16 +6,17 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { EntityModelUserModel } from '../../models/entity-model-user-model';
+import { CollectionModelEntityModelUserModel } from '../../models/collection-model-entity-model-user-model';
+import { Role } from '../../models/role';
 
 export interface ExecuteSearchUsermodelGet$Params {
-  email?: string;
+  role?: Role;
 }
 
-export function executeSearchUsermodelGet(http: HttpClient, rootUrl: string, params?: ExecuteSearchUsermodelGet$Params, context?: HttpContext): Observable<StrictHttpResponse<EntityModelUserModel>> {
+export function executeSearchUsermodelGet(http: HttpClient, rootUrl: string, params?: ExecuteSearchUsermodelGet$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelEntityModelUserModel>> {
   const rb = new RequestBuilder(rootUrl, executeSearchUsermodelGet.PATH, 'get');
   if (params) {
-    rb.query('email', params.email, {});
+    rb.query('role', params.role, {});
   }
 
   return http.request(
@@ -23,9 +24,9 @@ export function executeSearchUsermodelGet(http: HttpClient, rootUrl: string, par
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<EntityModelUserModel>;
+      return r as StrictHttpResponse<CollectionModelEntityModelUserModel>;
     })
   );
 }
 
-executeSearchUsermodelGet.PATH = '/userModels/search/findByEmail';
+executeSearchUsermodelGet.PATH = '/userModels/search/findAllByRolesContains';

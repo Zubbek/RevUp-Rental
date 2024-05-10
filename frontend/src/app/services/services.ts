@@ -4,4 +4,5 @@ export { RoleSearchControllerService } from './services/role-search-controller.s
 export { UserModelEntityControllerService } from './services/user-model-entity-controller.service';
 export { UserModelSearchControllerService } from './services/user-model-search-controller.service';
 export { UserModelPropertyReferenceControllerService } from './services/user-model-property-reference-controller.service';
+export { UserControllerService } from './services/user-controller.service';
 export { AuthenticationService } from './services/authentication.service';

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import MOTORCYCLES from "./motorcycles/motorcycle-data";
 
 @Component({
   selector: 'app-root',
@@ -13,5 +12,4 @@ import MOTORCYCLES from "./motorcycles/motorcycle-data";
 
 export class AppComponent {
   title = 'frontend';
-  motorcycles = MOTORCYCLES;
 }

@@ -10,6 +10,7 @@ import { RoleSearchControllerService } from './services/role-search-controller.s
 import { UserModelEntityControllerService } from './services/user-model-entity-controller.service';
 import { UserModelSearchControllerService } from './services/user-model-search-controller.service';
 import { UserModelPropertyReferenceControllerService } from './services/user-model-property-reference-controller.service';
+import { UserControllerService } from './services/user-controller.service';
 import { AuthenticationService } from './services/authentication.service';
 
 /**
@@ -26,6 +27,7 @@ import { AuthenticationService } from './services/authentication.service';
     UserModelEntityControllerService,
     UserModelSearchControllerService,
     UserModelPropertyReferenceControllerService,
+    UserControllerService,
     AuthenticationService,
     ApiConfiguration
   ],

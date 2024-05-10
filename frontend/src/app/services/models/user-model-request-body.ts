@@ -9,11 +9,13 @@ export interface UserModelRequestBody {
   credentialsNonExpired?: boolean;
   email?: string;
   enabled?: boolean;
+  favourites?: Array<string>;
   id?: number;
   lastModifiedDate?: string;
   locked?: boolean;
   name?: string;
   password?: string;
+  reservations?: Array<string>;
   roles?: Array<string>;
   username?: string;
 }
