@@ -3,6 +3,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,17 +21,20 @@ public class UserController {
   }
 
   @PutMapping
-  public ResponseEntity<String> updateUser(@RequestBody Map<String, String> requestBody) {
+  public ResponseEntity<Map<String, String>> updateUser(@RequestBody Map<String, String> requestBody) {
     String email = requestBody.get("email");
     userService.disableUser(email);
-    return ResponseEntity.ok("User updated successfully");
+    Map<String, String> response = new HashMap<>();
+    response.put("message", "User updated successfully");
+    return ResponseEntity.ok(response);
   }
 
-  // Endpoint obsługujący żądania DELETE na ścieżce /admin
   @DeleteMapping
-  public ResponseEntity<String> deleteUser(@RequestBody Map<String, String> requestBody) {
+  public ResponseEntity<Map<String, String>> deleteUser(@RequestBody Map<String, String> requestBody) {
     String email = requestBody.get("email");
     userService.deleteUser(email);
-    return ResponseEntity.ok("User deleted successfully");
+    Map<String, String> response = new HashMap<>();
+    response.put("message", "User deleted successfully");
+    return ResponseEntity.ok(response);
   }
 }
