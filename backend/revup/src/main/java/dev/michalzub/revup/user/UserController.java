@@ -21,9 +21,14 @@ public class UserController {
   }
 
   @PutMapping
-  public ResponseEntity<Map<String, String>> updateUser(@RequestBody Map<String, String> requestBody) {
-    String email = requestBody.get("email");
-    userService.disableUser(email);
+  public ResponseEntity<Map<String, String>> updateUser(@RequestBody UpdateUserRequest request) {
+    String email = request.getEmail();
+    boolean isLocked = request.getIsLocked();
+    if (!isLocked) {
+      userService.lockUser(email);
+    } else {
+      userService.unLockUser(email);
+    }
     Map<String, String> response = new HashMap<>();
     response.put("message", "User updated successfully");
     return ResponseEntity.ok(response);
