@@ -14,6 +14,7 @@ public class MotorcycleModel {
   private Integer id;
   private String company;
   private String model;
+  private boolean isReserved;
   @OneToOne
   private MotorcycleDetailsModel motorcycleDetails;
   @OneToMany(mappedBy = "motorcycle")

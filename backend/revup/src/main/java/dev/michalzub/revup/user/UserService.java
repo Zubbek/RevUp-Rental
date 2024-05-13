@@ -36,11 +36,19 @@ public class UserService implements UserDetailsService {
       userRepository.delete(user);
     }
 
-    public void disableUser(String email) {
+    public void lockUser(String email) {
       UserModel user = userRepository.findByEmail(email)
         .orElseThrow(() -> new IllegalArgumentException("User not found with email: " + email));
       user.setEnabled(false);
       user.setLocked(true);
+      userRepository.save(user);
+    }
+
+    public void unLockUser(String email) {
+      UserModel user = userRepository.findByEmail(email)
+        .orElseThrow(() -> new IllegalArgumentException("User not found with email: " + email));
+      user.setEnabled(true);
+      user.setLocked(false);
       userRepository.save(user);
     }
   }
