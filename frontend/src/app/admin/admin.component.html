@@ -46,6 +46,9 @@
         Role
       </th>
       <th scope="col" class="px-6 py-3">
+        isLocked ?
+      </th>
+      <th scope="col" class="px-6 py-3">
         Action
       </th>
     </tr>
@@ -62,7 +65,11 @@
         {{role.name}}
       </td>
       <td class="px-6 py-4">
-        <button type="button" class="text-white bg-gray-700 hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-black dark:hover:bg-black dark:focus:ring-black mr-4" (click)="lockAccount(user.email)">Lock Account</button>
+        {{ user.locked }}
+      </td>
+      <td class="px-6 py-4">
+        <button type="button" class="text-white bg-gray-700 hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-black dark:hover:bg-black dark:focus:ring-black mr-4" (click)="lockAccount(user.email)">Lock</button>
+        <button type="button" class="text-white bg-gray-700 hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-black dark:hover:bg-black dark:focus:ring-black mr-4" (click)="unLockAccount(user.email)">UnLock</button>
         <button type="button" class="text-white bg-gray-700 hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-black dark:hover:bg-black dark:focus:ring-black mr-4" (click)="deleteUser(user.email)">Delete</button>
       </td>
     </tr>

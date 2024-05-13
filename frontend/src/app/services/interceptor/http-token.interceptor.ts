@@ -33,6 +33,7 @@ export const httpTokenInterceptor: HttpInterceptorFn = (req, next) => {
       })
     );
   }
+  else localStorage.clear();
   return next(req);
 };
 

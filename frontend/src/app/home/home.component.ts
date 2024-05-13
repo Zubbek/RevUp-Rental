@@ -4,6 +4,7 @@ import motorcycles from "../favourites/motorcycle-data";
 import {CategoryService} from "../services/category/category.service";
 import {NgForOf} from "@angular/common";
 import {RouterLink} from "@angular/router";
+import MOTORCYCLES from "./motorcycles";
 
 @Component({
   selector: 'app-home',
@@ -18,12 +19,13 @@ import {RouterLink} from "@angular/router";
 export class HomeComponent implements OnInit {
   categories: any[] = [];
   isCategoriesFetched: boolean = false;
+  motorcycles = MOTORCYCLES;
 
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
     if (!this.isCategoriesFetched) {
-      this.fetchCategories();
+      // this.fetchCategories();
     }
   }
 
@@ -52,5 +54,4 @@ export class HomeComponent implements OnInit {
   }
 
   descriptions = Descriptions;
-  protected readonly motorcycles = motorcycles;
 }

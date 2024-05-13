@@ -16,10 +16,14 @@ import {NgForOf} from "@angular/common";
 export class MotorcyclesComponent implements OnInit {
   categoryName: string = '';
   image: string = '';
-  motorcycles: any[] = [];
+  motorcycles = MOTORCYCLES;
   isCategoriesFetched: boolean = false;
 
   constructor(private route: ActivatedRoute, private categoryService: CategoryService) { }
+
+  ngOnInit(): void {
+    
+  }
 
   // ngOnInit(): void {
   //   if (!this.isCategoriesFetched) {
@@ -44,30 +48,30 @@ export class MotorcyclesComponent implements OnInit {
   //   }
   // }
 
-  ngOnInit(): void {
-    if (!this.isCategoriesFetched) {
-      this.route.params.subscribe(async params => {
-        this.categoryName = params['categoryName'];
-        console.log(this.categoryName);// Odczytaj nazwę kategorii z parametrów ścieżki
-        this.motorcycles = await this.categoryService.getModels(this.categoryName);
-
-        // Zbierz wszystkie obrazki asynchronicznie
-        const fetchImagePromises = this.motorcycles.map(async (motorcycle) => {
-          if (motorcycle.articleID) {
-            const image = await this.categoryService.fetchImage(motorcycle.articleID);
-            console.log(image);
-            if (image) {
-              motorcycle.image = image; // Przypisz obrazek do pola image w obiekcie motorcycle
-            }
-          }
-        });
-
-        // Poczekaj na zakończenie wszystkich operacji fetchImage
-        await Promise.all(fetchImagePromises);
-
-        console.log(this.motorcycles);
-        this.isCategoriesFetched = true;
-      });
-    }
-  }
+  // ngOnInit(): void {
+  //   if (!this.isCategoriesFetched) {
+  //     this.route.params.subscribe(async params => {
+  //       this.categoryName = params['categoryName'];
+  //       console.log(this.categoryName);// Odczytaj nazwę kategorii z parametrów ścieżki
+  //       this.motorcycles = await this.categoryService.getModels(this.categoryName);
+  //
+  //       // Zbierz wszystkie obrazki asynchronicznie
+  //       const fetchImagePromises = this.motorcycles.map(async (motorcycle) => {
+  //         if (motorcycle.articleID) {
+  //           const image = await this.categoryService.fetchImage(motorcycle.articleID);
+  //           console.log(image);
+  //           if (image) {
+  //             motorcycle.image = image; // Przypisz obrazek do pola image w obiekcie motorcycle
+  //           }
+  //         }
+  //       });
+  //
+  //       // Poczekaj na zakończenie wszystkich operacji fetchImage
+  //       await Promise.all(fetchImagePromises);
+  //
+  //       console.log(this.motorcycles);
+  //       this.isCategoriesFetched = true;
+  //     });
+  //   }
+  // }
 }
