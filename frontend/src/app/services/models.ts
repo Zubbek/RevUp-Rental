@@ -23,5 +23,6 @@ export { ReservationModel } from './models/reservation-model';
 export { Role } from './models/role';
 export { RoleRequestBody } from './models/role-request-body';
 export { RoleResponse } from './models/role-response';
+export { UpdateUserRequest } from './models/update-user-request';
 export { UserModel } from './models/user-model';
 export { UserModelRequestBody } from './models/user-model-request-body';

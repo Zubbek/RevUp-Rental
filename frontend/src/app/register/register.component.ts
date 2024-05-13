@@ -5,6 +5,7 @@ import {FormsModule} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthenticationService} from "../services/services/authentication.service";
 import {TokenService} from "../services/token/token.service";
+import {ToastrService} from "ngx-toastr";
 
 
 @Component({
@@ -25,7 +26,8 @@ export class RegisterComponent {
 
   constructor(
     private router: Router,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private toastr: ToastrService
   ) {
   }
   register() {
@@ -34,7 +36,10 @@ export class RegisterComponent {
       body: this.registerRequest
     }).subscribe({
       next: () => {
-        this.router.navigate(['home'])
+        this.router.navigate(['login'])
+        this.toastr.info("You Successfully Created an Account! Now you can Sign In :)", "Info", {
+          timeOut: 5000
+        });
       },
       error: (err) => {
         console.log(err);

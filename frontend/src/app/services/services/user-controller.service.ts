@@ -57,7 +57,9 @@ export class UserControllerService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  updateUser$Response(params: UpdateUser$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+  updateUser$Response(params: UpdateUser$Params, context?: HttpContext): Observable<StrictHttpResponse<{
+[key: string]: string;
+}>> {
     return updateUser(this.http, this.rootUrl, params, context);
   }
 
@@ -67,9 +69,15 @@ export class UserControllerService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  updateUser(params: UpdateUser$Params, context?: HttpContext): Observable<string> {
+  updateUser(params: UpdateUser$Params, context?: HttpContext): Observable<{
+[key: string]: string;
+}> {
     return this.updateUser$Response(params, context).pipe(
-      map((r: StrictHttpResponse<string>): string => r.body)
+      map((r: StrictHttpResponse<{
+[key: string]: string;
+}>): {
+[key: string]: string;
+} => r.body)
     );
   }
 
@@ -82,7 +90,9 @@ export class UserControllerService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  deleteUser$Response(params: DeleteUser$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+  deleteUser$Response(params: DeleteUser$Params, context?: HttpContext): Observable<StrictHttpResponse<{
+[key: string]: string;
+}>> {
     return deleteUser(this.http, this.rootUrl, params, context);
   }
 
@@ -92,9 +102,15 @@ export class UserControllerService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  deleteUser(params: DeleteUser$Params, context?: HttpContext): Observable<string> {
+  deleteUser(params: DeleteUser$Params, context?: HttpContext): Observable<{
+[key: string]: string;
+}> {
     return this.deleteUser$Response(params, context).pipe(
-      map((r: StrictHttpResponse<string>): string => r.body)
+      map((r: StrictHttpResponse<{
+[key: string]: string;
+}>): {
+[key: string]: string;
+} => r.body)
     );
   }
 

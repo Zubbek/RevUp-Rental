@@ -13,7 +13,9 @@ export interface DeleteUser$Params {
 }
 }
 
-export function deleteUser(http: HttpClient, rootUrl: string, params: DeleteUser$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+export function deleteUser(http: HttpClient, rootUrl: string, params: DeleteUser$Params, context?: HttpContext): Observable<StrictHttpResponse<{
+[key: string]: string;
+}>> {
   const rb = new RequestBuilder(rootUrl, deleteUser.PATH, 'delete');
   if (params) {
     rb.body(params.body, 'application/json');
@@ -24,7 +26,9 @@ export function deleteUser(http: HttpClient, rootUrl: string, params: DeleteUser
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<string>;
+      return r as StrictHttpResponse<{
+      [key: string]: string;
+      }>;
     })
   );
 }

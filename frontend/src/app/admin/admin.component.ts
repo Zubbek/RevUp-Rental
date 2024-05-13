@@ -5,7 +5,6 @@ import {UserModel} from "../services/models/user-model";
 import {ToastrModule, ToastrService} from "ngx-toastr";
 import {UpdateUser$Params} from "../services/fn/user-controller/update-user";
 import {DeleteUser$Params} from "../services/fn/user-controller/delete-user";
-import {timeout, timestamp} from "rxjs";
 
 @Component({
   selector: 'app-admin',
@@ -34,12 +33,33 @@ export class AdminComponent implements OnInit{
     if (email) {
       const params: UpdateUser$Params = {
         body: {
-          email: email
+          email: email,
+          isLocked: false
         }
       };
       this.userService.updateUser(params).subscribe(() => {
         console.log("Lock account for user: ", email);
         this.showSuccess();
+        this.refreshUserData();
+      });
+    } else {
+      console.error("Email is undefined!");
+      this.showError();
+    }
+  }
+
+  unLockAccount(email: string | undefined): void {
+    if (email) {
+      const params: UpdateUser$Params = {
+        body: {
+          email: email,
+          isLocked: true
+        }
+      };
+      this.userService.updateUser(params).subscribe(() => {
+        console.log("Lock account for user: ", email);
+        this.showSuccess();
+        this.refreshUserData();
       });
     } else {
       console.error("Email is undefined!");
@@ -56,6 +76,7 @@ export class AdminComponent implements OnInit{
       this.userService.deleteUser(params).subscribe(() => {
         console.log("Delete user: ", email);
         this.showSuccess();
+        this.refreshUserData();
       });
     } else {
       console.error("Email is undefined!");
@@ -64,7 +85,7 @@ export class AdminComponent implements OnInit{
   }
 
   showSuccess() {
-    this.toastr.success('Operation ended successful', 'Notofication', {
+    this.toastr.success('Operation ended successful', 'Notification', {
       timeOut: 3000,
     });
   }
@@ -72,6 +93,11 @@ export class AdminComponent implements OnInit{
   showError() {
     this.toastr.error('Operation ended with ERROR', 'Error', {
       timeOut: 3000,
+    });
+  }
+  refreshUserData() {
+    this.userService.getAllUsers().subscribe((data: UserModel[]) => {
+      this.users = data;
     });
   }
 }
