@@ -25,4 +25,4 @@ export function descriptor112$Any(http: HttpClient, rootUrl: string, params?: De
   );
 }
 
-descriptor112$Any.PATH = '/profile/userModels';
+descriptor112$Any.PATH = '/profile/roles';

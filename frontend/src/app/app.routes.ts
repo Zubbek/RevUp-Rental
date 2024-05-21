@@ -15,7 +15,7 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   {path: 'home', component: HomeComponent},
   {path: 'reservation', component: ReservationComponent},
-  {path: 'motorcycles/:categoryName', component: MotorcyclesComponent },
+  {path: 'motorcycles/:category', component: MotorcyclesComponent },
   {path: 'favourites', component: FavouritesComponent},
   {path: 'admin', component: AdminComponent},
   { path: '**', redirectTo: '' }

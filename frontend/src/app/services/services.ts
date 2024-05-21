@@ -1,3 +1,5 @@
+export { MotorcycleModelEntityControllerService } from './services/motorcycle-model-entity-controller.service';
+export { MotorcycleModelSearchControllerService } from './services/motorcycle-model-search-controller.service';
 export { ProfileControllerService } from './services/profile-controller.service';
 export { RoleEntityControllerService } from './services/role-entity-controller.service';
 export { RoleSearchControllerService } from './services/role-search-controller.service';
@@ -6,3 +8,4 @@ export { UserModelSearchControllerService } from './services/user-model-search-c
 export { UserModelPropertyReferenceControllerService } from './services/user-model-property-reference-controller.service';
 export { UserControllerService } from './services/user-controller.service';
 export { AuthenticationService } from './services/authentication.service';
+export { MotorcycleControllerService } from './services/motorcycle-controller.service';

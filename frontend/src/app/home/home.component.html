@@ -43,127 +43,40 @@
     </div>
   </section>
 
-<!--&lt;!&ndash;Categories&ndash;&gt;-->
-<!--  <div>-->
-<!--    <h1 class="mb-2 text-5xl font-bold tracking-tight text-white dark:text-white px-10 my-10 ">Categories</h1>-->
-<!--  </div>-->
-<!--  <div class="grid grid-cols-2 md:grid-cols-3 gap-10 m-8">-->
-<!--      <div *ngFor="let category of categories" class="max-w-sm bg-white bg-opacity-70 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">-->
-<!--        <a [routerLink]="['/motorcycles', category.name]" >-->
-<!--          <img class="rounded-t-lg" src="http://api-motorcycle.makingdatameaningful.com/files/honda/2021/crf300-rally/honda_2021_crf300-rally.jpg" alt="" />-->
-<!--        </a>-->
-<!--        <div class="p-5">-->
-<!--          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{category.name}}</h5>-->
-<!--          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{category.description}}</p>-->
-<!--          <a [routerLink]="['/motorcycles', category.name]" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">-->
-<!--            Check out-->
-<!--            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">-->
-<!--              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>-->
-<!--            </svg>-->
-<!--          </a>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--  </div>-->
-
-
-
-<!--  <div class="flex justify-between justify-items-center gap-10 my-10 mx-10">-->
-<!--    <div class="max-w-sm bg-white bg-opacity-70 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">-->
-<!--      <a href="#">-->
-<!--        <img class="rounded-t-lg" src="http://api-motorcycle.makingdatameaningful.com/files/honda/2021/crf300-rally/honda_2021_crf300-rally.jpg" alt="" />-->
-<!--      </a>-->
-<!--      <div class="p-5">-->
-<!--        <a href="#">-->
-<!--          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Sports Bike</h5>-->
-<!--        </a>-->
-<!--        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Sport bikes are dynamic machines with powerful engines and excellent agility, providing thrilling experiences during fast rides.</p>-->
-<!--        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">-->
-<!--          Check out-->
-<!--          <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">-->
-<!--            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>-->
-<!--          </svg>-->
-<!--        </a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="max-w-sm bg-white bg-opacity-70 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">-->
-<!--      <a href="#">-->
-<!--        <img class="rounded-t-lg" src="http://api-motorcycle.makingdatameaningful.com/files/honda/2021/crf300-rally/honda_2021_crf300-rally.jpg" alt="" />-->
-<!--      </a>-->
-<!--      <div class="p-5">-->
-<!--        <a href="#">-->
-<!--          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Naked</h5>-->
-<!--        </a>-->
-<!--        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Naked bikes are minimalist motorcycles with a raw design and exposed engine, valued for their simplicity and comfort.</p>-->
-<!--        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">-->
-<!--          Check out-->
-<!--          <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">-->
-<!--            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>-->
-<!--          </svg>-->
-<!--        </a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="max-w-sm bg-white bg-opacity-70 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">-->
-<!--      <a href="#">-->
-<!--        <img class="rounded-t-lg" src="http://api-motorcycle.makingdatameaningful.com/files/honda/2021/crf300-rally/honda_2021_crf300-rally.jpg" alt="" />-->
-<!--      </a>-->
-<!--      <div class="p-5">-->
-<!--        <a href="#">-->
-<!--          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Touring</h5>-->
-<!--        </a>-->
-<!--        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Touring motorcycles are designed for long-distance journeys, equipped with comfortable seating, and super large fuel tanks.</p>-->
-<!--        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">-->
-<!--          Check out-->
-<!--          <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">-->
-<!--            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>-->
-<!--          </svg>-->
-<!--        </a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="max-w-sm bg-white bg-opacity-70 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">-->
-<!--      <a href="#">-->
-<!--        <img class="rounded-t-lg" src="http://api-motorcycle.makingdatameaningful.com/files/honda/2021/crf300-rally/honda_2021_crf300-rally.jpg" alt="" />-->
-<!--      </a>-->
-<!--      <div class="p-5">-->
-<!--        <a href="#">-->
-<!--          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Cross/Enduro</h5>-->
-<!--        </a>-->
-<!--        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Motorcycles feature high suspension, large off-road tires, and chassis protection, engineered for riding in challenging terrain.</p>-->
-<!--        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">-->
-<!--          Check out-->
-<!--          <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">-->
-<!--            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>-->
-<!--          </svg>-->
-<!--        </a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+<!--Categories-->
+  <div>
+    <h1 class="mb-2 text-5xl font-bold tracking-tight text-white dark:text-white px-10 my-10 ">CATEGORIES</h1>
+  </div>
+  <div class="justify-items-center grid grid-cols-2 md:grid-cols-2 gap-20 m-40">
+    <div *ngFor="let motorcycle of motorcycles" class=" max-w-sm bg-white bg-opacity-70 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a [routerLink]="['/motorcycles', motorcycle.category]" >
+          <img class=" h-3/5 bg-white rounded-t-lg" src="{{motorcycle.image}}" alt="motorcycle image" />
+        </a>
+      <div class="items-center flex flex-col p-5">
+        <h5 class="text-center mb-2 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">{{motorcycle.category}}</h5>
+        <a [routerLink]="['/motorcycles', motorcycle.category]" class="inline-flex items-center px-4 py-3 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Check out
+          <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
 
 <!--Recently added motorcycles-->
   <div>
-    <h1 class="mb-2 text-5xl font-bold tracking-tight text-white dark:text-white px-10 my-40 ">Recently added</h1>
+    <h1 class="mb-2 text-5xl font-bold tracking-tight text-white dark:text-white px-10 my-40 ">MOTORCYCLES OF THE DAY</h1>
   </div>
-  <div class="flex justify-between justify-items-center gap-10 mx-10 my-10">
-    <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"  src="http://api-motorcycle.makingdatameaningful.com/files/honda/2021/crf300-rally/honda_2021_crf300-rally.jpg" alt="">
+  <div class="flex justify-between gap-4 m-10">
+    <div *ngFor="let recently of recentlyAdded" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"  src="{{recently.image}}" alt="">
       <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Honda Crf 300L</h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Newly Added to Our Fleet: Rent This Awaited Motorcycle for Your Ultimate Riding Experience!</p>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{recently.company}}</h5>
+        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{{recently.model}}</h5>
       </div>
-    </a>
-    <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="http://api-motorcycle.makingdatameaningful.com/files/honda/2021/crf300-rally/honda_2021_crf300-rally.jpg" alt="">
-      <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Honda Crf 300L</h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Unveiling Our Latest Addition: Rent This Pristine Motorcycle and Explore the Open Road!</p>
-      </div>
-    </a>
-    <a href="#" class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src="http://api-motorcycle.makingdatameaningful.com/files/honda/2021/crf300-rally/honda_2021_crf300-rally.jpg" alt="">
-      <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Honda Crf 300L</h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Gear Up for Thrills: Rent This Freshly Acquired Motorcycle and Let the Journey Begin!</p>
-      </div>
-    </a>
+      <button type="button" class="text-white bg-gray-700 hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-black dark:hover:bg-black dark:focus:ring-black mr-4">Check out</button>
+    </div>
   </div>
 
 <!--accordion-->
