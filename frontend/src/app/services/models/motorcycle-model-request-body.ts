@@ -1,7 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export interface MotorcycleModelRequestBody {
-  amount?: number;
   articleId?: number;
   category?: string;
   company?: string;
@@ -10,6 +9,7 @@ export interface MotorcycleModelRequestBody {
   image?: string;
   model?: string;
   motorcycleDetails?: string;
+  price?: number;
   reservations?: Array<string>;
   reserved?: boolean;
 }

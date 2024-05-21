@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import MOTORCYCLES from "./motorcycle-data";
-import {ActivatedRoute} from "@angular/router";
-import {CategoryService} from "../services/category/category.service";
-import {NgForOf} from "@angular/common";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { NgForOf } from "@angular/common";
+import { MotorcycleControllerService } from "../services/services/motorcycle-controller.service";
+import { MotorcycleModel } from "../services/models/motorcycle-model";
+import { GetMotorcyclesFromCategory$Params } from "../services/fn/motorcycle-controller/get-motorcycles-from-category";
 
 @Component({
   selector: 'app-motorcycles',
@@ -14,64 +15,31 @@ import {NgForOf} from "@angular/common";
   styleUrl: './motorcycles.component.css'
 })
 export class MotorcyclesComponent implements OnInit {
-  categoryName: string = '';
-  image: string = '';
-  motorcycles = MOTORCYCLES;
-  isCategoriesFetched: boolean = false;
+  motorcycles: MotorcycleModel[] = [];
+  category: string = '';
 
-  constructor(private route: ActivatedRoute, private categoryService: CategoryService) { }
+  constructor(private route: ActivatedRoute, private motorcycleService: MotorcycleControllerService) { }
 
   ngOnInit(): void {
-    
+    this.route.paramMap.subscribe(params => {
+      this.category = params.get('category')!;
+      this.fetchMotorcycles();
+    });
   }
 
-  // ngOnInit(): void {
-  //   if (!this.isCategoriesFetched) {
-  //     this.route.params.subscribe(async params => {
-  //       this.categoryName = params['categoryName'];
-  //       console.log(this.categoryName)// Odczytaj nazwę kategorii z parametrów ścieżki
-  //       this.motorcycles = await this.categoryService.getModels(this.categoryName);
-  //       // for (const motorcycle of this.motorcycles) {
-  //       //   // Sprawdź, czy articleID jest zdefiniowany
-  //       //   if (motorcycle.articleID) {
-  //       //     const image = await this.categoryService.fetchImage(motorcycle.articleID);
-  //       //     if (image) {
-  //       //       motorcycle.image = image; // Przypisz obrazek do pola image w obiekcie motorcycle
-  //       //     }
-  //       //   }
-  //       // }
-  //       this.image = await this.categoryService.fetchImage("804882")
-  //       console.log(this.image)
-  //       console.log(this.motorcycles);
-  //       this.isCategoriesFetched = true;
-  //     });
-  //   }
-  // }
-
-  // ngOnInit(): void {
-  //   if (!this.isCategoriesFetched) {
-  //     this.route.params.subscribe(async params => {
-  //       this.categoryName = params['categoryName'];
-  //       console.log(this.categoryName);// Odczytaj nazwę kategorii z parametrów ścieżki
-  //       this.motorcycles = await this.categoryService.getModels(this.categoryName);
-  //
-  //       // Zbierz wszystkie obrazki asynchronicznie
-  //       const fetchImagePromises = this.motorcycles.map(async (motorcycle) => {
-  //         if (motorcycle.articleID) {
-  //           const image = await this.categoryService.fetchImage(motorcycle.articleID);
-  //           console.log(image);
-  //           if (image) {
-  //             motorcycle.image = image; // Przypisz obrazek do pola image w obiekcie motorcycle
-  //           }
-  //         }
-  //       });
-  //
-  //       // Poczekaj na zakończenie wszystkich operacji fetchImage
-  //       await Promise.all(fetchImagePromises);
-  //
-  //       console.log(this.motorcycles);
-  //       this.isCategoriesFetched = true;
-  //     });
-  //   }
-  // }
+  fetchMotorcycles(): void {
+    if (this.category) {
+      const paramsObj: GetMotorcyclesFromCategory$Params = { category: this.category };
+      this.motorcycleService.getMotorcyclesFromCategory(paramsObj).subscribe(
+        (data: MotorcycleModel[]) => {
+          this.motorcycles = data;
+        },
+        (error) => {
+          console.error('Error fetching motorcycles:', error);
+        }
+      );
+    } else {
+      console.error('Category parameter is missing');
+    }
+  }
 }

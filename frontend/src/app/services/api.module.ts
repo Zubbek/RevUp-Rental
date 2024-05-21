@@ -4,6 +4,8 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
+import { MotorcycleModelEntityControllerService } from './services/motorcycle-model-entity-controller.service';
+import { MotorcycleModelSearchControllerService } from './services/motorcycle-model-search-controller.service';
 import { ProfileControllerService } from './services/profile-controller.service';
 import { RoleEntityControllerService } from './services/role-entity-controller.service';
 import { RoleSearchControllerService } from './services/role-search-controller.service';
@@ -12,6 +14,7 @@ import { UserModelSearchControllerService } from './services/user-model-search-c
 import { UserModelPropertyReferenceControllerService } from './services/user-model-property-reference-controller.service';
 import { UserControllerService } from './services/user-controller.service';
 import { AuthenticationService } from './services/authentication.service';
+import { MotorcycleControllerService } from './services/motorcycle-controller.service';
 
 /**
  * Module that provides all services and configuration.
@@ -21,6 +24,8 @@ import { AuthenticationService } from './services/authentication.service';
   exports: [],
   declarations: [],
   providers: [
+    MotorcycleModelEntityControllerService,
+    MotorcycleModelSearchControllerService,
     ProfileControllerService,
     RoleEntityControllerService,
     RoleSearchControllerService,
@@ -29,6 +34,7 @@ import { AuthenticationService } from './services/authentication.service';
     UserModelPropertyReferenceControllerService,
     UserControllerService,
     AuthenticationService,
+    MotorcycleControllerService,
     ApiConfiguration
   ],
 })

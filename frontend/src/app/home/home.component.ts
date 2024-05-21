@@ -1,10 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import Descriptions from "./descriptions";
-import motorcycles from "../favourites/motorcycle-data";
-import {CategoryService} from "../services/category/category.service";
-import {NgForOf} from "@angular/common";
-import {RouterLink} from "@angular/router";
-import MOTORCYCLES from "./motorcycles";
+import { Component, OnInit } from '@angular/core';
+import { NgForOf } from "@angular/common";
+import { RouterLink } from "@angular/router";
+import { MotorcycleModel } from "../services/models/motorcycle-model";
+import { MotorcycleControllerService } from "../services/services/motorcycle-controller.service";
 
 @Component({
   selector: 'app-home',
@@ -17,41 +15,85 @@ import MOTORCYCLES from "./motorcycles";
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
-  categories: any[] = [];
-  isCategoriesFetched: boolean = false;
-  motorcycles = MOTORCYCLES;
+  motorcycles: MotorcycleModel[] = [];
+  recentlyAdded: MotorcycleModel[] = [];
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private motorcycleService: MotorcycleControllerService) { }
 
   ngOnInit(): void {
-    if (!this.isCategoriesFetched) {
-      // this.fetchCategories();
+    this.fetchMotorcycles();
+  }
+
+  fetchMotorcycles() {
+    const storedMotorcycles = localStorage.getItem('motorcycles');
+
+    if (storedMotorcycles) {
+      const motorcycles = JSON.parse(storedMotorcycles) as MotorcycleModel[];
+      this.handleMotorcyclesData(motorcycles);
+    } else {
+      this.motorcycleService.getMotorcyclesByCategory().subscribe(
+        (data: MotorcycleModel[]) => {
+          localStorage.setItem('motorcycles', JSON.stringify(data));
+          this.handleMotorcyclesData(data);
+        },
+        (error) => {
+          console.error('Error fetching motorcycles:', error);
+        }
+      );
     }
   }
 
-  async fetchCategories() {
-    const categoriesToRemove = ['ATV', 'Prototype-concept model', 'Custom-cruiser', 'Minibike-sport', 'Minibike-cross', 'Trial', 'Speedway', 'Allround'];
-    this.categories = await this.categoryService.getCategories();
-    this.categories = this.categories.filter(category => !categoriesToRemove.includes(category.name))
-      .map(category => {
-        const descriptionObj = Descriptions.find((desc: { name: any; }) => desc.name === category.name);
-        const description = descriptionObj ? descriptionObj.description : '';
-        return {
-          ...category,
-          description: description
-        };
-      })
-      .sort((a, b) => {
-      if (a.name < b.name) {
-        return -1;
-      }
-      if (a.name > b.name) {
-        return 1;
-      }
-      return 0;
-    });
-    this.isCategoriesFetched = true;
+  handleMotorcyclesData(data: MotorcycleModel[]) {
+    const filteredMotorcycles = this.filterMotorcyclesByCategory(data);
+    const recently = this.getRecentlyAdded(data);
+    this.motorcycles = filteredMotorcycles;
+    this.recentlyAdded = recently;
+    console.log(filteredMotorcycles);
   }
 
-  descriptions = Descriptions;
+  filterMotorcyclesByCategory(motorcycles: MotorcycleModel[]): MotorcycleModel[] {
+    const categoryMap = new Map<string, MotorcycleModel>();
+
+    motorcycles.forEach(motorcycle => {
+      if (!categoryMap.has(motorcycle.category!)) {
+        if (motorcycle.category != null) {
+          categoryMap.set(motorcycle.category, motorcycle);
+        }
+      }
+    });
+
+    return Array.from(categoryMap.values());
+  }
+
+  private getRecentlyAdded(data: MotorcycleModel[]): MotorcycleModel[] {
+    const storedRecentlyAdded = localStorage.getItem('recentlyAddedMotorcycles');
+    if (storedRecentlyAdded) {
+      return JSON.parse(storedRecentlyAdded);
+    }
+
+    const recentlyAdded = this.findRecentlyAdded(data);
+    localStorage.setItem('recentlyAddedMotorcycles', JSON.stringify(recentlyAdded));
+    return recentlyAdded;
+  }
+
+  private findRecentlyAdded(data: MotorcycleModel[]): MotorcycleModel[] {
+    if (data.length < 3) {
+      return data;
+    }
+
+    function getRandomInt(min: number, max: number): number {
+      return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    const result: MotorcycleModel[] = [];
+    const usedIndices: Set<number> = new Set();
+    while (result.length < 3) {
+      const randomIndex = getRandomInt(0, data.length);
+      if (!usedIndices.has(randomIndex)) {
+        usedIndices.add(randomIndex);
+        result.push(data[randomIndex]);
+      }
+    }
+    return result;
+  }
 }
