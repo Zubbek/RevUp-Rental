@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 @Table(name = "reservations")
 public class ReservationModel {
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   @OneToOne(mappedBy = "reservation")
   private ReservationDetailsModel reservationDetails;

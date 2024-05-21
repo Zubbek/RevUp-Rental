@@ -10,7 +10,7 @@ import java.util.List;
 @Table(name = "favourites")
 public class FavouritesModel {
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   @ManyToMany(mappedBy = "favourites")
   private List<UserModel> users;

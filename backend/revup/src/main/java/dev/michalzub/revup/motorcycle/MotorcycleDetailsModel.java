@@ -6,9 +6,8 @@ import jakarta.persistence.*;
 @Table(name = "motorcycleDetails")
 public class MotorcycleDetailsModel {
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
-  private String price;
   private Integer year;
   private String engine;
   private String power;

@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Table(name = "reservationDetails")
 public class ReservationDetailsModel {
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
   private String customerName;
   private String customerSurname;
