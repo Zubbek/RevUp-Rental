@@ -1,5 +1,6 @@
 package dev.michalzub.revup.user;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import dev.michalzub.revup.favourites.FavouritesModel;
 import dev.michalzub.revup.reservation.ReservationModel;
 import dev.michalzub.revup.role.Role;
@@ -47,7 +48,8 @@ public class UserModel implements UserDetails, Principal {
     private List<Role> roles;
     @OneToMany(mappedBy = "user")
     private List<ReservationModel> reservations;
-    @ManyToMany(fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<FavouritesModel> favourites;
 
     private boolean locked;

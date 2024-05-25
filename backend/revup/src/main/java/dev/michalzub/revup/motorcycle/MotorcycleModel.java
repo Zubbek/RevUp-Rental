@@ -1,5 +1,6 @@
 package dev.michalzub.revup.motorcycle;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.michalzub.revup.favourites.FavouritesModel;
 import dev.michalzub.revup.reservation.ReservationModel;
 import jakarta.persistence.*;
@@ -24,7 +25,8 @@ public class MotorcycleModel {
   private boolean isReserved;
   private Integer price;
 
-  @OneToOne
+  @OneToOne(mappedBy = "motorcycle", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @JsonIgnore
   private MotorcycleDetailsModel motorcycleDetails;
   @OneToMany(mappedBy = "motorcycle")
   private List<ReservationModel> reservations;
