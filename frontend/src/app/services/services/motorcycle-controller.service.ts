@@ -13,12 +13,40 @@ import { getMotorcyclesByCategory } from '../fn/motorcycle-controller/get-motorc
 import { GetMotorcyclesByCategory$Params } from '../fn/motorcycle-controller/get-motorcycles-by-category';
 import { getMotorcyclesFromCategory } from '../fn/motorcycle-controller/get-motorcycles-from-category';
 import { GetMotorcyclesFromCategory$Params } from '../fn/motorcycle-controller/get-motorcycles-from-category';
+import { getMotorcycleSpecById } from '../fn/motorcycle-controller/get-motorcycle-spec-by-id';
+import { GetMotorcycleSpecById$Params } from '../fn/motorcycle-controller/get-motorcycle-spec-by-id';
+import { MotorcycleDetailsModel } from '../models/motorcycle-details-model';
 import { MotorcycleModel } from '../models/motorcycle-model';
 
 @Injectable({ providedIn: 'root' })
 export class MotorcycleControllerService extends BaseService {
   constructor(config: ApiConfiguration, http: HttpClient) {
     super(config, http);
+  }
+
+  /** Path part for operation `getMotorcycleSpecById()` */
+  static readonly GetMotorcycleSpecByIdPath = '/reservation/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getMotorcycleSpecById()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getMotorcycleSpecById$Response(params: GetMotorcycleSpecById$Params, context?: HttpContext): Observable<StrictHttpResponse<MotorcycleDetailsModel>> {
+    return getMotorcycleSpecById(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `getMotorcycleSpecById$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getMotorcycleSpecById(params: GetMotorcycleSpecById$Params, context?: HttpContext): Observable<MotorcycleDetailsModel> {
+    return this.getMotorcycleSpecById$Response(params, context).pipe(
+      map((r: StrictHttpResponse<MotorcycleDetailsModel>): MotorcycleDetailsModel => r.body)
+    );
   }
 
   /** Path part for operation `getMotorcyclesFromCategory()` */

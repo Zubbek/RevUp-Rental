@@ -6,7 +6,6 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { EntityModelFavouritesModel } from '../../models/entity-model-favourites-model';
 import { MotorcycleModel } from '../../models/motorcycle-model';
 import { UserModel } from '../../models/user-model';
 
@@ -15,7 +14,7 @@ export interface ExecuteSearchFavouritesmodelGet$Params {
   motorcycle?: MotorcycleModel;
 }
 
-export function executeSearchFavouritesmodelGet(http: HttpClient, rootUrl: string, params?: ExecuteSearchFavouritesmodelGet$Params, context?: HttpContext): Observable<StrictHttpResponse<EntityModelFavouritesModel>> {
+export function executeSearchFavouritesmodelGet(http: HttpClient, rootUrl: string, params?: ExecuteSearchFavouritesmodelGet$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
   const rb = new RequestBuilder(rootUrl, executeSearchFavouritesmodelGet.PATH, 'get');
   if (params) {
     rb.query('user', params.user, {});
@@ -23,13 +22,13 @@ export function executeSearchFavouritesmodelGet(http: HttpClient, rootUrl: strin
   }
 
   return http.request(
-    rb.build({ responseType: 'json', accept: 'application/hal+json', context })
+    rb.build({ responseType: 'text', accept: '*/*', context })
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<EntityModelFavouritesModel>;
+      return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
     })
   );
 }
 
-executeSearchFavouritesmodelGet.PATH = '/favouritesModels/search/findByUserAndMotorcycle';
+executeSearchFavouritesmodelGet.PATH = '/favouritesModels/search/deleteMotorcycleFromFavourites';

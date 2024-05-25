@@ -20,7 +20,7 @@ export class MotorcycleDetailsModelSearchControllerService extends BaseService {
   }
 
   /** Path part for operation `executeSearchMotorcycledetailsmodelGet()` */
-  static readonly ExecuteSearchMotorcycledetailsmodelGetPath = '/motorcycleDetailsModels/search/findById';
+  static readonly ExecuteSearchMotorcycledetailsmodelGetPath = '/motorcycleDetailsModels/search/findByMotorcycleId';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.

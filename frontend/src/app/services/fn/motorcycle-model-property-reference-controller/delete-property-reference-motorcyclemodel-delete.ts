@@ -27,4 +27,4 @@ export function deletePropertyReferenceMotorcyclemodelDelete(http: HttpClient, r
   );
 }
 
-deletePropertyReferenceMotorcyclemodelDelete.PATH = '/motorcycleModels/{id}/motorcycleDetails';
+deletePropertyReferenceMotorcyclemodelDelete.PATH = '/motorcycleModels/{id}/favourites';

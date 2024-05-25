@@ -1,7 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
 import { FavouritesModel } from '../models/favourites-model';
-import { MotorcycleDetailsModel } from '../models/motorcycle-details-model';
 import { ReservationModel } from '../models/reservation-model';
 export interface MotorcycleModel {
   articleId?: number;
@@ -11,7 +10,6 @@ export interface MotorcycleModel {
   id?: number;
   image?: string;
   model?: string;
-  motorcycleDetails?: MotorcycleDetailsModel;
   price?: number;
   reservations?: Array<ReservationModel>;
   reserved?: boolean;

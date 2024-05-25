@@ -6,14 +6,14 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { CollectionModelRole } from '../../models/collection-model-role';
+import { CollectionModelFavouritesModel } from '../../models/collection-model-favourites-model';
 
 export interface CreatePropertyReferenceUsermodelPatch$UriList$Params {
   id: string;
       body: string
 }
 
-export function createPropertyReferenceUsermodelPatch$UriList(http: HttpClient, rootUrl: string, params: CreatePropertyReferenceUsermodelPatch$UriList$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelRole>> {
+export function createPropertyReferenceUsermodelPatch$UriList(http: HttpClient, rootUrl: string, params: CreatePropertyReferenceUsermodelPatch$UriList$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelFavouritesModel>> {
   const rb = new RequestBuilder(rootUrl, createPropertyReferenceUsermodelPatch$UriList.PATH, 'patch');
   if (params) {
     rb.path('id', params.id, {});
@@ -25,9 +25,9 @@ export function createPropertyReferenceUsermodelPatch$UriList(http: HttpClient, 
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<CollectionModelRole>;
+      return r as StrictHttpResponse<CollectionModelFavouritesModel>;
     })
   );
 }
 
-createPropertyReferenceUsermodelPatch$UriList.PATH = '/userModels/{id}/roles';
+createPropertyReferenceUsermodelPatch$UriList.PATH = '/userModels/{id}/favourites';

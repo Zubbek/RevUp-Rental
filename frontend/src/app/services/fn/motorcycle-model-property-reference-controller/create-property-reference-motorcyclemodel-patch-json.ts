@@ -6,15 +6,15 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
+import { CollectionModelFavouritesModel } from '../../models/collection-model-favourites-model';
 import { CollectionModelObject } from '../../models/collection-model-object';
-import { EntityModelMotorcycleDetailsModel } from '../../models/entity-model-motorcycle-details-model';
 
 export interface CreatePropertyReferenceMotorcyclemodelPatch$Json$Params {
   id: string;
       body: CollectionModelObject
 }
 
-export function createPropertyReferenceMotorcyclemodelPatch$Json(http: HttpClient, rootUrl: string, params: CreatePropertyReferenceMotorcyclemodelPatch$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<EntityModelMotorcycleDetailsModel>> {
+export function createPropertyReferenceMotorcyclemodelPatch$Json(http: HttpClient, rootUrl: string, params: CreatePropertyReferenceMotorcyclemodelPatch$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelFavouritesModel>> {
   const rb = new RequestBuilder(rootUrl, createPropertyReferenceMotorcyclemodelPatch$Json.PATH, 'patch');
   if (params) {
     rb.path('id', params.id, {});
@@ -26,9 +26,9 @@ export function createPropertyReferenceMotorcyclemodelPatch$Json(http: HttpClien
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<EntityModelMotorcycleDetailsModel>;
+      return r as StrictHttpResponse<CollectionModelFavouritesModel>;
     })
   );
 }
 
-createPropertyReferenceMotorcyclemodelPatch$Json.PATH = '/motorcycleModels/{id}/motorcycleDetails';
+createPropertyReferenceMotorcyclemodelPatch$Json.PATH = '/motorcycleModels/{id}/favourites';

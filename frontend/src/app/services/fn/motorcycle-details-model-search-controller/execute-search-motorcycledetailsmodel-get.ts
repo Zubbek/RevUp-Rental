@@ -28,4 +28,4 @@ export function executeSearchMotorcycledetailsmodelGet(http: HttpClient, rootUrl
   );
 }
 
-executeSearchMotorcycledetailsmodelGet.PATH = '/motorcycleDetailsModels/search/findById';
+executeSearchMotorcycledetailsmodelGet.PATH = '/motorcycleDetailsModels/search/findByMotorcycleId';

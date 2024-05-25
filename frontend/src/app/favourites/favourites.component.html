@@ -36,26 +36,25 @@
     <h1 class="mb-2 text-7xl font-bold tracking-tight text-white dark:text-white px-10 my-10 ">IT</h1>
     <h1 class="mb-2 text-7xl font-bold tracking-tight text-white dark:text-white px-10 my-10 ">AGAIN</h1>
   </div>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-10 m-8">
-    @for (motorcycle of motorcycles; track motorcycle.id) {
-      <div class="max-w-sm bg-white bg-opacity-70 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-          <img class="rounded-t-lg" src="{{motorcycle.image}}" alt="" />
-        </a>
-        <div class="p-5">
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{motorcycle.brand}}</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{motorcycle.model}}</p>
-          <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Check out
+  <div class="justify-items-center grid grid-cols-2 md:grid-cols-3 gap-20 m-40">
+    <div *ngFor="let motorcycle of favouriteMotorcycles" class=" max-w-sm bg-white bg-opacity-70 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <a (click)="navigateToMotorcycle(motorcycle)" >
+        <img class=" h-3/5 bg-white rounded-t-lg" src="{{motorcycle.image}}" alt="motorcycle image" />
+      </a>
+      <div class="items-center flex flex-col p-5">
+        <h5 class="text-center mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{{motorcycle.company}}</h5>
+        <h5 class="text-center mb-2 font-bold tracking-tight text-gray-900 dark:text-white">{{motorcycle.model}}</h5>
+        <div class="flex justify-between">
+          <button type="button" class="text-white bg-gray-700 hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-black dark:hover:bg-black dark:focus:ring-black mr-4" (click)="removeMotorcycleFromFavourites(Number(motorcycle.id))">Remove</button>
+          <a (click)="navigateToMotorcycle(motorcycle)" class="inline-flex items-center px-4 py-3 text-sm font-medium text-center text-white bg-gray-700 rounded-lg hover:bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Rent Again
             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
             </svg>
           </a>
         </div>
       </div>
-    }
+    </div>
   </div>
 
   <!--footer-->

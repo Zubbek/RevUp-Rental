@@ -29,4 +29,4 @@ export function deletePropertyReferenceIdUsermodelDelete(http: HttpClient, rootU
   );
 }
 
-deletePropertyReferenceIdUsermodelDelete.PATH = '/userModels/{id}/roles/{propertyId}';
+deletePropertyReferenceIdUsermodelDelete.PATH = '/userModels/{id}/favourites/{propertyId}';

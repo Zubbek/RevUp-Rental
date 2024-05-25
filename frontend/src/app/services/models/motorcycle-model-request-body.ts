@@ -8,7 +8,6 @@ export interface MotorcycleModelRequestBody {
   id?: number;
   image?: string;
   model?: string;
-  motorcycleDetails?: string;
   price?: number;
   reservations?: Array<string>;
   reserved?: boolean;

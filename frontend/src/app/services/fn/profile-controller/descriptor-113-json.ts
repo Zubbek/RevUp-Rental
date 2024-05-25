@@ -26,4 +26,4 @@ export function descriptor113$Json(http: HttpClient, rootUrl: string, params?: D
   );
 }
 
-descriptor113$Json.PATH = '/profile/userModels';
+descriptor113$Json.PATH = '/profile/motorcycleModels';

@@ -5,7 +5,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {provideHttpClient, withInterceptors} from "@angular/common/http";
 import {httpTokenInterceptor} from "./services/interceptor/http-token.interceptor";
 import {provideToastr} from "ngx-toastr";
-import {provideAnimations} from "@angular/platform-browser/animations";
+import {provideAnimations, provideNoopAnimations} from "@angular/platform-browser/animations";
+import {provideNativeDateAdapter} from "@angular/material/core";
 
 
 export const appConfig: ApplicationConfig = {
@@ -15,7 +16,9 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideHttpClient(),
     provideHttpClient(withInterceptors([httpTokenInterceptor])),
-    provideToastr()
+    provideToastr(), provideAnimationsAsync(),
+    provideNativeDateAdapter(),
+    provideNoopAnimations()
   ],
 };
 
