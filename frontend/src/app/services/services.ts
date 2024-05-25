@@ -1,5 +1,12 @@
+export { FavouritesModelEntityControllerService } from './services/favourites-model-entity-controller.service';
+export { FavouritesModelSearchControllerService } from './services/favourites-model-search-controller.service';
+export { FavouritesModelPropertyReferenceControllerService } from './services/favourites-model-property-reference-controller.service';
+export { MotorcycleDetailsModelEntityControllerService } from './services/motorcycle-details-model-entity-controller.service';
+export { MotorcycleDetailsModelSearchControllerService } from './services/motorcycle-details-model-search-controller.service';
+export { MotorcycleDetailsModelPropertyReferenceControllerService } from './services/motorcycle-details-model-property-reference-controller.service';
 export { MotorcycleModelEntityControllerService } from './services/motorcycle-model-entity-controller.service';
 export { MotorcycleModelSearchControllerService } from './services/motorcycle-model-search-controller.service';
+export { MotorcycleModelPropertyReferenceControllerService } from './services/motorcycle-model-property-reference-controller.service';
 export { ProfileControllerService } from './services/profile-controller.service';
 export { RoleEntityControllerService } from './services/role-entity-controller.service';
 export { RoleSearchControllerService } from './services/role-search-controller.service';
@@ -8,4 +15,5 @@ export { UserModelSearchControllerService } from './services/user-model-search-c
 export { UserModelPropertyReferenceControllerService } from './services/user-model-property-reference-controller.service';
 export { UserControllerService } from './services/user-controller.service';
 export { AuthenticationService } from './services/authentication.service';
+export { FavouritesControllerService } from './services/favourites-controller.service';
 export { MotorcycleControllerService } from './services/motorcycle-controller.service';

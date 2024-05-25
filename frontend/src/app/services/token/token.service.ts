@@ -39,9 +39,9 @@ export class TokenService {
     if (token) {
       const jwtHelper = new JwtHelperService();
       const decodedToken = jwtHelper.decodeToken(token);
-      console.log(decodedToken.authorities);
       return decodedToken.authorities;
     }
     return [];
   }
+
 }

@@ -27,4 +27,4 @@ export function followPropertyReferenceMotorcyclemodelGet1$UriList(http: HttpCli
   );
 }
 
-followPropertyReferenceMotorcyclemodelGet1$UriList.PATH = '/motorcycleModels/{id}/motorcycleDetails';
+followPropertyReferenceMotorcyclemodelGet1$UriList.PATH = '/motorcycleModels/{id}/favourites';

@@ -6,14 +6,14 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { EntityModelMotorcycleDetailsModel } from '../../models/entity-model-motorcycle-details-model';
+import { CollectionModelFavouritesModel } from '../../models/collection-model-favourites-model';
 
 export interface CreatePropertyReferenceMotorcyclemodelPut$UriList$Params {
   id: string;
       body: string
 }
 
-export function createPropertyReferenceMotorcyclemodelPut$UriList(http: HttpClient, rootUrl: string, params: CreatePropertyReferenceMotorcyclemodelPut$UriList$Params, context?: HttpContext): Observable<StrictHttpResponse<EntityModelMotorcycleDetailsModel>> {
+export function createPropertyReferenceMotorcyclemodelPut$UriList(http: HttpClient, rootUrl: string, params: CreatePropertyReferenceMotorcyclemodelPut$UriList$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelFavouritesModel>> {
   const rb = new RequestBuilder(rootUrl, createPropertyReferenceMotorcyclemodelPut$UriList.PATH, 'put');
   if (params) {
     rb.path('id', params.id, {});
@@ -25,9 +25,9 @@ export function createPropertyReferenceMotorcyclemodelPut$UriList(http: HttpClie
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<EntityModelMotorcycleDetailsModel>;
+      return r as StrictHttpResponse<CollectionModelFavouritesModel>;
     })
   );
 }
 
-createPropertyReferenceMotorcyclemodelPut$UriList.PATH = '/motorcycleModels/{id}/motorcycleDetails';
+createPropertyReferenceMotorcyclemodelPut$UriList.PATH = '/motorcycleModels/{id}/favourites';

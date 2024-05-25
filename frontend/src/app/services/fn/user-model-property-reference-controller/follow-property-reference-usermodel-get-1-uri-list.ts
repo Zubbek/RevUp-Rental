@@ -27,4 +27,4 @@ export function followPropertyReferenceUsermodelGet1$UriList(http: HttpClient, r
   );
 }
 
-followPropertyReferenceUsermodelGet1$UriList.PATH = '/userModels/{id}/roles';
+followPropertyReferenceUsermodelGet1$UriList.PATH = '/userModels/{id}/favourites';

@@ -9,6 +9,7 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
+import { CollectionModelFavouritesModel } from '../models/collection-model-favourites-model';
 import { createPropertyReferenceMotorcyclemodelPatch$Json } from '../fn/motorcycle-model-property-reference-controller/create-property-reference-motorcyclemodel-patch-json';
 import { CreatePropertyReferenceMotorcyclemodelPatch$Json$Params } from '../fn/motorcycle-model-property-reference-controller/create-property-reference-motorcyclemodel-patch-json';
 import { createPropertyReferenceMotorcyclemodelPatch$UriList } from '../fn/motorcycle-model-property-reference-controller/create-property-reference-motorcyclemodel-patch-uri-list';
@@ -21,7 +22,6 @@ import { deletePropertyReferenceIdMotorcyclemodelDelete } from '../fn/motorcycle
 import { DeletePropertyReferenceIdMotorcyclemodelDelete$Params } from '../fn/motorcycle-model-property-reference-controller/delete-property-reference-id-motorcyclemodel-delete';
 import { deletePropertyReferenceMotorcyclemodelDelete } from '../fn/motorcycle-model-property-reference-controller/delete-property-reference-motorcyclemodel-delete';
 import { DeletePropertyReferenceMotorcyclemodelDelete$Params } from '../fn/motorcycle-model-property-reference-controller/delete-property-reference-motorcyclemodel-delete';
-import { EntityModelMotorcycleDetailsModel } from '../models/entity-model-motorcycle-details-model';
 import { followPropertyReferenceMotorcyclemodelGet } from '../fn/motorcycle-model-property-reference-controller/follow-property-reference-motorcyclemodel-get';
 import { FollowPropertyReferenceMotorcyclemodelGet$Params } from '../fn/motorcycle-model-property-reference-controller/follow-property-reference-motorcyclemodel-get';
 import { followPropertyReferenceMotorcyclemodelGet1$Json } from '../fn/motorcycle-model-property-reference-controller/follow-property-reference-motorcyclemodel-get-1-json';
@@ -36,36 +36,36 @@ export class MotorcycleModelPropertyReferenceControllerService extends BaseServi
   }
 
   /** Path part for operation `followPropertyReferenceMotorcyclemodelGet1()` */
-  static readonly FollowPropertyReferenceMotorcyclemodelGet1Path = '/motorcycleModels/{id}/motorcycleDetails';
+  static readonly FollowPropertyReferenceMotorcyclemodelGet1Path = '/motorcycleModels/{id}/favourites';
 
   /**
-   * get-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * get-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `followPropertyReferenceMotorcyclemodelGet1$Json()` instead.
    *
    * This method doesn't expect any request body.
    */
-  followPropertyReferenceMotorcyclemodelGet1$Json$Response(params: FollowPropertyReferenceMotorcyclemodelGet1$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<EntityModelMotorcycleDetailsModel>> {
+  followPropertyReferenceMotorcyclemodelGet1$Json$Response(params: FollowPropertyReferenceMotorcyclemodelGet1$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelFavouritesModel>> {
     return followPropertyReferenceMotorcyclemodelGet1$Json(this.http, this.rootUrl, params, context);
   }
 
   /**
-   * get-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * get-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `followPropertyReferenceMotorcyclemodelGet1$Json$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  followPropertyReferenceMotorcyclemodelGet1$Json(params: FollowPropertyReferenceMotorcyclemodelGet1$Json$Params, context?: HttpContext): Observable<EntityModelMotorcycleDetailsModel> {
+  followPropertyReferenceMotorcyclemodelGet1$Json(params: FollowPropertyReferenceMotorcyclemodelGet1$Json$Params, context?: HttpContext): Observable<CollectionModelFavouritesModel> {
     return this.followPropertyReferenceMotorcyclemodelGet1$Json$Response(params, context).pipe(
-      map((r: StrictHttpResponse<EntityModelMotorcycleDetailsModel>): EntityModelMotorcycleDetailsModel => r.body)
+      map((r: StrictHttpResponse<CollectionModelFavouritesModel>): CollectionModelFavouritesModel => r.body)
     );
   }
 
   /**
-   * get-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * get-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `followPropertyReferenceMotorcyclemodelGet1$UriList()` instead.
@@ -77,7 +77,7 @@ export class MotorcycleModelPropertyReferenceControllerService extends BaseServi
   }
 
   /**
-   * get-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * get-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `followPropertyReferenceMotorcyclemodelGet1$UriList$Response()` instead.
@@ -91,65 +91,65 @@ export class MotorcycleModelPropertyReferenceControllerService extends BaseServi
   }
 
   /** Path part for operation `createPropertyReferenceMotorcyclemodelPut()` */
-  static readonly CreatePropertyReferenceMotorcyclemodelPutPath = '/motorcycleModels/{id}/motorcycleDetails';
+  static readonly CreatePropertyReferenceMotorcyclemodelPutPath = '/motorcycleModels/{id}/favourites';
 
   /**
-   * update-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * update-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `createPropertyReferenceMotorcyclemodelPut$Json()` instead.
    *
    * This method sends `application/x-spring-data-compact+json` and handles request body of type `application/x-spring-data-compact+json`.
    */
-  createPropertyReferenceMotorcyclemodelPut$Json$Response(params: CreatePropertyReferenceMotorcyclemodelPut$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<EntityModelMotorcycleDetailsModel>> {
+  createPropertyReferenceMotorcyclemodelPut$Json$Response(params: CreatePropertyReferenceMotorcyclemodelPut$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelFavouritesModel>> {
     return createPropertyReferenceMotorcyclemodelPut$Json(this.http, this.rootUrl, params, context);
   }
 
   /**
-   * update-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * update-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `createPropertyReferenceMotorcyclemodelPut$Json$Response()` instead.
    *
    * This method sends `application/x-spring-data-compact+json` and handles request body of type `application/x-spring-data-compact+json`.
    */
-  createPropertyReferenceMotorcyclemodelPut$Json(params: CreatePropertyReferenceMotorcyclemodelPut$Json$Params, context?: HttpContext): Observable<EntityModelMotorcycleDetailsModel> {
+  createPropertyReferenceMotorcyclemodelPut$Json(params: CreatePropertyReferenceMotorcyclemodelPut$Json$Params, context?: HttpContext): Observable<CollectionModelFavouritesModel> {
     return this.createPropertyReferenceMotorcyclemodelPut$Json$Response(params, context).pipe(
-      map((r: StrictHttpResponse<EntityModelMotorcycleDetailsModel>): EntityModelMotorcycleDetailsModel => r.body)
+      map((r: StrictHttpResponse<CollectionModelFavouritesModel>): CollectionModelFavouritesModel => r.body)
     );
   }
 
   /**
-   * update-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * update-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `createPropertyReferenceMotorcyclemodelPut$UriList()` instead.
    *
    * This method sends `text/uri-list` and handles request body of type `text/uri-list`.
    */
-  createPropertyReferenceMotorcyclemodelPut$UriList$Response(params: CreatePropertyReferenceMotorcyclemodelPut$UriList$Params, context?: HttpContext): Observable<StrictHttpResponse<EntityModelMotorcycleDetailsModel>> {
+  createPropertyReferenceMotorcyclemodelPut$UriList$Response(params: CreatePropertyReferenceMotorcyclemodelPut$UriList$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelFavouritesModel>> {
     return createPropertyReferenceMotorcyclemodelPut$UriList(this.http, this.rootUrl, params, context);
   }
 
   /**
-   * update-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * update-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `createPropertyReferenceMotorcyclemodelPut$UriList$Response()` instead.
    *
    * This method sends `text/uri-list` and handles request body of type `text/uri-list`.
    */
-  createPropertyReferenceMotorcyclemodelPut$UriList(params: CreatePropertyReferenceMotorcyclemodelPut$UriList$Params, context?: HttpContext): Observable<EntityModelMotorcycleDetailsModel> {
+  createPropertyReferenceMotorcyclemodelPut$UriList(params: CreatePropertyReferenceMotorcyclemodelPut$UriList$Params, context?: HttpContext): Observable<CollectionModelFavouritesModel> {
     return this.createPropertyReferenceMotorcyclemodelPut$UriList$Response(params, context).pipe(
-      map((r: StrictHttpResponse<EntityModelMotorcycleDetailsModel>): EntityModelMotorcycleDetailsModel => r.body)
+      map((r: StrictHttpResponse<CollectionModelFavouritesModel>): CollectionModelFavouritesModel => r.body)
     );
   }
 
   /** Path part for operation `deletePropertyReferenceMotorcyclemodelDelete()` */
-  static readonly DeletePropertyReferenceMotorcyclemodelDeletePath = '/motorcycleModels/{id}/motorcycleDetails';
+  static readonly DeletePropertyReferenceMotorcyclemodelDeletePath = '/motorcycleModels/{id}/favourites';
 
   /**
-   * delete-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * delete-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `deletePropertyReferenceMotorcyclemodelDelete()` instead.
@@ -161,7 +161,7 @@ export class MotorcycleModelPropertyReferenceControllerService extends BaseServi
   }
 
   /**
-   * delete-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * delete-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `deletePropertyReferenceMotorcyclemodelDelete$Response()` instead.
@@ -175,94 +175,94 @@ export class MotorcycleModelPropertyReferenceControllerService extends BaseServi
   }
 
   /** Path part for operation `createPropertyReferenceMotorcyclemodelPatch()` */
-  static readonly CreatePropertyReferenceMotorcyclemodelPatchPath = '/motorcycleModels/{id}/motorcycleDetails';
+  static readonly CreatePropertyReferenceMotorcyclemodelPatchPath = '/motorcycleModels/{id}/favourites';
 
   /**
-   * patch-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * patch-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `createPropertyReferenceMotorcyclemodelPatch$Json()` instead.
    *
    * This method sends `application/x-spring-data-compact+json` and handles request body of type `application/x-spring-data-compact+json`.
    */
-  createPropertyReferenceMotorcyclemodelPatch$Json$Response(params: CreatePropertyReferenceMotorcyclemodelPatch$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<EntityModelMotorcycleDetailsModel>> {
+  createPropertyReferenceMotorcyclemodelPatch$Json$Response(params: CreatePropertyReferenceMotorcyclemodelPatch$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelFavouritesModel>> {
     return createPropertyReferenceMotorcyclemodelPatch$Json(this.http, this.rootUrl, params, context);
   }
 
   /**
-   * patch-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * patch-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `createPropertyReferenceMotorcyclemodelPatch$Json$Response()` instead.
    *
    * This method sends `application/x-spring-data-compact+json` and handles request body of type `application/x-spring-data-compact+json`.
    */
-  createPropertyReferenceMotorcyclemodelPatch$Json(params: CreatePropertyReferenceMotorcyclemodelPatch$Json$Params, context?: HttpContext): Observable<EntityModelMotorcycleDetailsModel> {
+  createPropertyReferenceMotorcyclemodelPatch$Json(params: CreatePropertyReferenceMotorcyclemodelPatch$Json$Params, context?: HttpContext): Observable<CollectionModelFavouritesModel> {
     return this.createPropertyReferenceMotorcyclemodelPatch$Json$Response(params, context).pipe(
-      map((r: StrictHttpResponse<EntityModelMotorcycleDetailsModel>): EntityModelMotorcycleDetailsModel => r.body)
+      map((r: StrictHttpResponse<CollectionModelFavouritesModel>): CollectionModelFavouritesModel => r.body)
     );
   }
 
   /**
-   * patch-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * patch-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `createPropertyReferenceMotorcyclemodelPatch$UriList()` instead.
    *
    * This method sends `text/uri-list` and handles request body of type `text/uri-list`.
    */
-  createPropertyReferenceMotorcyclemodelPatch$UriList$Response(params: CreatePropertyReferenceMotorcyclemodelPatch$UriList$Params, context?: HttpContext): Observable<StrictHttpResponse<EntityModelMotorcycleDetailsModel>> {
+  createPropertyReferenceMotorcyclemodelPatch$UriList$Response(params: CreatePropertyReferenceMotorcyclemodelPatch$UriList$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelFavouritesModel>> {
     return createPropertyReferenceMotorcyclemodelPatch$UriList(this.http, this.rootUrl, params, context);
   }
 
   /**
-   * patch-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * patch-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `createPropertyReferenceMotorcyclemodelPatch$UriList$Response()` instead.
    *
    * This method sends `text/uri-list` and handles request body of type `text/uri-list`.
    */
-  createPropertyReferenceMotorcyclemodelPatch$UriList(params: CreatePropertyReferenceMotorcyclemodelPatch$UriList$Params, context?: HttpContext): Observable<EntityModelMotorcycleDetailsModel> {
+  createPropertyReferenceMotorcyclemodelPatch$UriList(params: CreatePropertyReferenceMotorcyclemodelPatch$UriList$Params, context?: HttpContext): Observable<CollectionModelFavouritesModel> {
     return this.createPropertyReferenceMotorcyclemodelPatch$UriList$Response(params, context).pipe(
-      map((r: StrictHttpResponse<EntityModelMotorcycleDetailsModel>): EntityModelMotorcycleDetailsModel => r.body)
+      map((r: StrictHttpResponse<CollectionModelFavouritesModel>): CollectionModelFavouritesModel => r.body)
     );
   }
 
   /** Path part for operation `followPropertyReferenceMotorcyclemodelGet()` */
-  static readonly FollowPropertyReferenceMotorcyclemodelGetPath = '/motorcycleModels/{id}/motorcycleDetails/{propertyId}';
+  static readonly FollowPropertyReferenceMotorcyclemodelGetPath = '/motorcycleModels/{id}/favourites/{propertyId}';
 
   /**
-   * get-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * get-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `followPropertyReferenceMotorcyclemodelGet()` instead.
    *
    * This method doesn't expect any request body.
    */
-  followPropertyReferenceMotorcyclemodelGet$Response(params: FollowPropertyReferenceMotorcyclemodelGet$Params, context?: HttpContext): Observable<StrictHttpResponse<EntityModelMotorcycleDetailsModel>> {
+  followPropertyReferenceMotorcyclemodelGet$Response(params: FollowPropertyReferenceMotorcyclemodelGet$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelFavouritesModel>> {
     return followPropertyReferenceMotorcyclemodelGet(this.http, this.rootUrl, params, context);
   }
 
   /**
-   * get-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * get-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `followPropertyReferenceMotorcyclemodelGet$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  followPropertyReferenceMotorcyclemodelGet(params: FollowPropertyReferenceMotorcyclemodelGet$Params, context?: HttpContext): Observable<EntityModelMotorcycleDetailsModel> {
+  followPropertyReferenceMotorcyclemodelGet(params: FollowPropertyReferenceMotorcyclemodelGet$Params, context?: HttpContext): Observable<CollectionModelFavouritesModel> {
     return this.followPropertyReferenceMotorcyclemodelGet$Response(params, context).pipe(
-      map((r: StrictHttpResponse<EntityModelMotorcycleDetailsModel>): EntityModelMotorcycleDetailsModel => r.body)
+      map((r: StrictHttpResponse<CollectionModelFavouritesModel>): CollectionModelFavouritesModel => r.body)
     );
   }
 
   /** Path part for operation `deletePropertyReferenceIdMotorcyclemodelDelete()` */
-  static readonly DeletePropertyReferenceIdMotorcyclemodelDeletePath = '/motorcycleModels/{id}/motorcycleDetails/{propertyId}';
+  static readonly DeletePropertyReferenceIdMotorcyclemodelDeletePath = '/motorcycleModels/{id}/favourites/{propertyId}';
 
   /**
-   * delete-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * delete-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `deletePropertyReferenceIdMotorcyclemodelDelete()` instead.
@@ -274,7 +274,7 @@ export class MotorcycleModelPropertyReferenceControllerService extends BaseServi
   }
 
   /**
-   * delete-motorcycledetailsmodel-by-motorcyclemodel-Id
+   * delete-favouritesmodel-by-motorcyclemodel-Id
    *
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `deletePropertyReferenceIdMotorcyclemodelDelete$Response()` instead.

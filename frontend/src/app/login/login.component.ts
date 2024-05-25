@@ -5,6 +5,8 @@ import {AuthenticationService} from "../services/services/authentication.service
 import {Router} from "@angular/router";
 import {TokenService} from "../services/token/token.service";
 import {NgForOf, NgIf} from "@angular/common";
+import {jwtDecode} from "jwt-decode";
+
 
 @Component({
   selector: 'app-login',
@@ -38,7 +40,6 @@ export class LoginComponent {
       next: (res) => {
         console.log("Odpowiedź z serwera:", res);
         this.tokenService.token = res.token as string;
-        console.log("token: ", this.tokenService.token)
         const userRoles = this.tokenService.userRoles;
         if (userRoles.includes('ADMIN')) {
           this.router.navigate(['/admin']);

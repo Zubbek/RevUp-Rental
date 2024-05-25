@@ -6,7 +6,6 @@ import {catchError, throwError} from "rxjs";
 export const httpTokenInterceptor: HttpInterceptorFn = (req, next) => {
   const tokenService = new TokenService();
   const token = tokenService.token;
-  console.log("token z interceptora: ", token);
   if(token) {
     const authReq = req.clone({
       setHeaders: {

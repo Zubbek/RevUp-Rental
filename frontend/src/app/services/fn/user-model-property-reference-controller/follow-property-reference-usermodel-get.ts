@@ -6,14 +6,14 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { CollectionModelRole } from '../../models/collection-model-role';
+import { CollectionModelFavouritesModel } from '../../models/collection-model-favourites-model';
 
 export interface FollowPropertyReferenceUsermodelGet$Params {
   id: string;
   propertyId: string;
 }
 
-export function followPropertyReferenceUsermodelGet(http: HttpClient, rootUrl: string, params: FollowPropertyReferenceUsermodelGet$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelRole>> {
+export function followPropertyReferenceUsermodelGet(http: HttpClient, rootUrl: string, params: FollowPropertyReferenceUsermodelGet$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelFavouritesModel>> {
   const rb = new RequestBuilder(rootUrl, followPropertyReferenceUsermodelGet.PATH, 'get');
   if (params) {
     rb.path('id', params.id, {});
@@ -25,9 +25,9 @@ export function followPropertyReferenceUsermodelGet(http: HttpClient, rootUrl: s
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<CollectionModelRole>;
+      return r as StrictHttpResponse<CollectionModelFavouritesModel>;
     })
   );
 }
 
-followPropertyReferenceUsermodelGet.PATH = '/userModels/{id}/roles/{propertyId}';
+followPropertyReferenceUsermodelGet.PATH = '/userModels/{id}/favourites/{propertyId}';

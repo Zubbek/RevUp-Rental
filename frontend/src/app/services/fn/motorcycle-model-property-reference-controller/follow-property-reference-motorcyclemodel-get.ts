@@ -6,14 +6,14 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { EntityModelMotorcycleDetailsModel } from '../../models/entity-model-motorcycle-details-model';
+import { CollectionModelFavouritesModel } from '../../models/collection-model-favourites-model';
 
 export interface FollowPropertyReferenceMotorcyclemodelGet$Params {
   id: string;
   propertyId: string;
 }
 
-export function followPropertyReferenceMotorcyclemodelGet(http: HttpClient, rootUrl: string, params: FollowPropertyReferenceMotorcyclemodelGet$Params, context?: HttpContext): Observable<StrictHttpResponse<EntityModelMotorcycleDetailsModel>> {
+export function followPropertyReferenceMotorcyclemodelGet(http: HttpClient, rootUrl: string, params: FollowPropertyReferenceMotorcyclemodelGet$Params, context?: HttpContext): Observable<StrictHttpResponse<CollectionModelFavouritesModel>> {
   const rb = new RequestBuilder(rootUrl, followPropertyReferenceMotorcyclemodelGet.PATH, 'get');
   if (params) {
     rb.path('id', params.id, {});
@@ -25,9 +25,9 @@ export function followPropertyReferenceMotorcyclemodelGet(http: HttpClient, root
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<EntityModelMotorcycleDetailsModel>;
+      return r as StrictHttpResponse<CollectionModelFavouritesModel>;
     })
   );
 }
 
-followPropertyReferenceMotorcyclemodelGet.PATH = '/motorcycleModels/{id}/motorcycleDetails/{propertyId}';
+followPropertyReferenceMotorcyclemodelGet.PATH = '/motorcycleModels/{id}/favourites/{propertyId}';

@@ -25,10 +25,15 @@ export class AdminComponent implements OnInit{
 
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe((data: UserModel[]) => {
-      this.users = data;
+      this.users = data.sort((a, b) => {
+        const dateA = new Date(a.createdDate as string).getTime();
+        const dateB = new Date(b.createdDate as string).getTime();
+        return dateB - dateA; // Sortowanie malejąco
+      });
       console.log(data);
     });
   }
+
   lockAccount(email: string | undefined): void {
     if (email) {
       const params: UpdateUser$Params = {
@@ -97,7 +102,11 @@ export class AdminComponent implements OnInit{
   }
   refreshUserData() {
     this.userService.getAllUsers().subscribe((data: UserModel[]) => {
-      this.users = data;
+      this.users = data.sort((a, b) => {
+        const dateA = new Date(a.createdDate as string).getTime();
+        const dateB = new Date(b.createdDate as string).getTime();
+        return dateB - dateA; // Sortowanie malejąco
+      });
     });
   }
 }

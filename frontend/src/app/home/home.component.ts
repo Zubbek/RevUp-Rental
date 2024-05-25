@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForOf } from "@angular/common";
-import { RouterLink } from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
 import { MotorcycleModel } from "../services/models/motorcycle-model";
 import { MotorcycleControllerService } from "../services/services/motorcycle-controller.service";
+import {UserModel} from "../services/models/user-model";
 
 @Component({
   selector: 'app-home',
@@ -17,8 +18,9 @@ import { MotorcycleControllerService } from "../services/services/motorcycle-con
 export class HomeComponent implements OnInit {
   motorcycles: MotorcycleModel[] = [];
   recentlyAdded: MotorcycleModel[] = [];
+  user: UserModel | undefined;
 
-  constructor(private motorcycleService: MotorcycleControllerService) { }
+  constructor(private motorcycleService: MotorcycleControllerService, private router: Router) { }
 
   ngOnInit(): void {
     this.fetchMotorcycles();
@@ -95,5 +97,24 @@ export class HomeComponent implements OnInit {
       }
     }
     return result;
+  }
+
+  navigateToMotorcycle(motorcycle: MotorcycleModel) {
+    console.log('Navigating with state:', {
+      category: motorcycle.category,
+      company: motorcycle.company,
+      model: motorcycle.model,
+      price: motorcycle.price,
+      image: motorcycle.image
+    });
+    this.router.navigate(['/reservation', motorcycle.id], {
+      state: {
+        category: motorcycle.category,
+        company: motorcycle.company,
+        model: motorcycle.model,
+        price: motorcycle.price,
+        image: motorcycle.image
+      }
+    });
   }
 }
