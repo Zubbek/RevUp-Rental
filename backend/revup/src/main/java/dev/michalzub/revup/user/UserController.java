@@ -9,7 +9,7 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "admin")
+@RequestMapping(path = "/admin")
 public class UserController {
 
   private final UserService userService;
