@@ -1,11 +1,12 @@
 package dev.michalzub.revup.reservation;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -19,9 +20,12 @@ public class ReservationDetailsModel {
   private String customerName;
   private String customerSurname;
   private String customerPhone;
-  private LocalDateTime startDate;
-  private LocalDateTime endDate;
+  private LocalDate startDate;
+  private LocalDate endDate;
   private Integer totalPrice;
+
   @OneToOne
+  @JoinColumn(name = "reservation_id")
+  @JsonBackReference
   private ReservationModel reservation;
 }

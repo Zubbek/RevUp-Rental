@@ -3,31 +3,32 @@ package dev.michalzub.revup.reservation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1/reservations")
+@RequestMapping("/reservation") // Upewnij się, że URL jest poprawny
 public class ReservationController {
 
   private final ReservationService reservationService;
 
-  @PostMapping("/create")
-  public ResponseEntity<String> createReservation(@RequestBody ReservationRequest request) {
-    String result = reservationService.createReservation(request);
 
-    if (result.equals("Reservation created successfully")) {
-      return ResponseEntity.ok(result);
-    } else {
-      return ResponseEntity.badRequest().body(result);
+  @PostMapping("/{motorcycleId}")
+  public ResponseEntity<?> createReservation(@RequestBody ReservationRequest request) {
+    try {
+      ResponseEntity<String> result = reservationService.createReservation(request);
+      return ResponseEntity.status(result.getStatusCode()).body("{\"message\": \"" + result.getBody() + "\"}");
+    } catch (ResponseStatusException e) {
+      return ResponseEntity.status(e.getStatusCode()).body("{\"error\": \"" + e.getReason() + "\"}");
     }
   }
 
-  @GetMapping("/available-dates/{motorcycleId}")
-  public ResponseEntity<List<LocalDateTime>> getAvailableDates(@PathVariable Integer motorcycleId) {
-    List<LocalDateTime> unavailableDates = reservationService.getAvailableDates(motorcycleId);
+  @GetMapping("/{motorcycleId}")
+  public ResponseEntity<List<LocalDate>> getAvailableDates(@PathVariable Integer motorcycleId) {
+    List<LocalDate> unavailableDates = reservationService.getAvailableDates(motorcycleId);
     return ResponseEntity.ok(unavailableDates);
   }
 }

@@ -28,4 +28,4 @@ export function getMotorcyclesFromCategory(http: HttpClient, rootUrl: string, pa
   );
 }
 
-getMotorcyclesFromCategory.PATH = '/motorcycle/{category}';
+getMotorcyclesFromCategory.PATH = '/motorcycles/{category}';

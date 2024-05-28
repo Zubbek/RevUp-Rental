@@ -15,6 +15,11 @@ spring:
         format_sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 application:
   security:
@@ -29,3 +34,6 @@ server:
   servlet:
     context-path: /api/v1/
 
+logging:
+  level:
+    dev.michalzub.revup: INFO

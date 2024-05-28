@@ -24,33 +24,8 @@ export class MotorcycleControllerService extends BaseService {
     super(config, http);
   }
 
-  /** Path part for operation `getMotorcycleSpecById()` */
-  static readonly GetMotorcycleSpecByIdPath = '/reservation/{id}';
-
-  /**
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `getMotorcycleSpecById()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  getMotorcycleSpecById$Response(params: GetMotorcycleSpecById$Params, context?: HttpContext): Observable<StrictHttpResponse<MotorcycleDetailsModel>> {
-    return getMotorcycleSpecById(this.http, this.rootUrl, params, context);
-  }
-
-  /**
-   * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `getMotorcycleSpecById$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  getMotorcycleSpecById(params: GetMotorcycleSpecById$Params, context?: HttpContext): Observable<MotorcycleDetailsModel> {
-    return this.getMotorcycleSpecById$Response(params, context).pipe(
-      map((r: StrictHttpResponse<MotorcycleDetailsModel>): MotorcycleDetailsModel => r.body)
-    );
-  }
-
   /** Path part for operation `getMotorcyclesFromCategory()` */
-  static readonly GetMotorcyclesFromCategoryPath = '/motorcycle/{category}';
+  static readonly GetMotorcyclesFromCategoryPath = '/motorcycles/{category}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -71,6 +46,31 @@ export class MotorcycleControllerService extends BaseService {
   getMotorcyclesFromCategory(params: GetMotorcyclesFromCategory$Params, context?: HttpContext): Observable<Array<MotorcycleModel>> {
     return this.getMotorcyclesFromCategory$Response(params, context).pipe(
       map((r: StrictHttpResponse<Array<MotorcycleModel>>): Array<MotorcycleModel> => r.body)
+    );
+  }
+
+  /** Path part for operation `getMotorcycleSpecById()` */
+  static readonly GetMotorcycleSpecByIdPath = '/motorcycle/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getMotorcycleSpecById()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getMotorcycleSpecById$Response(params: GetMotorcycleSpecById$Params, context?: HttpContext): Observable<StrictHttpResponse<MotorcycleDetailsModel>> {
+    return getMotorcycleSpecById(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `getMotorcycleSpecById$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getMotorcycleSpecById(params: GetMotorcycleSpecById$Params, context?: HttpContext): Observable<MotorcycleDetailsModel> {
+    return this.getMotorcycleSpecById$Response(params, context).pipe(
+      map((r: StrictHttpResponse<MotorcycleDetailsModel>): MotorcycleDetailsModel => r.body)
     );
   }
 

@@ -27,4 +27,4 @@ export function deletePropertyReferenceUsermodelDelete1(http: HttpClient, rootUr
   );
 }
 
-deletePropertyReferenceUsermodelDelete1.PATH = '/userModels/{id}/roles';
+deletePropertyReferenceUsermodelDelete1.PATH = '/userModels/{id}/reservations';

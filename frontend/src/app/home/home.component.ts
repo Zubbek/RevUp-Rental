@@ -107,7 +107,7 @@ export class HomeComponent implements OnInit {
       price: motorcycle.price,
       image: motorcycle.image
     });
-    this.router.navigate(['/reservation', motorcycle.id], {
+    this.router.navigate(['/motorcycle', motorcycle.id], {
       state: {
         category: motorcycle.category,
         company: motorcycle.company,
