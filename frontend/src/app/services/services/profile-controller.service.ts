@@ -29,6 +29,14 @@ import { descriptor115$Any } from '../fn/profile-controller/descriptor-115-any';
 import { Descriptor115$Any$Params } from '../fn/profile-controller/descriptor-115-any';
 import { descriptor115$Json } from '../fn/profile-controller/descriptor-115-json';
 import { Descriptor115$Json$Params } from '../fn/profile-controller/descriptor-115-json';
+import { descriptor116$Any } from '../fn/profile-controller/descriptor-116-any';
+import { Descriptor116$Any$Params } from '../fn/profile-controller/descriptor-116-any';
+import { descriptor116$Json } from '../fn/profile-controller/descriptor-116-json';
+import { Descriptor116$Json$Params } from '../fn/profile-controller/descriptor-116-json';
+import { descriptor117$Any } from '../fn/profile-controller/descriptor-117-any';
+import { Descriptor117$Any$Params } from '../fn/profile-controller/descriptor-117-any';
+import { descriptor117$Json } from '../fn/profile-controller/descriptor-117-json';
+import { Descriptor117$Json$Params } from '../fn/profile-controller/descriptor-117-json';
 import { JsonSchema } from '../models/json-schema';
 import { listAllFormsOfMetadata1 } from '../fn/profile-controller/list-all-forms-of-metadata-1';
 import { ListAllFormsOfMetadata1$Params } from '../fn/profile-controller/list-all-forms-of-metadata-1';
@@ -207,7 +215,7 @@ export class ProfileControllerService extends BaseService {
   }
 
   /** Path part for operation `descriptor114()` */
-  static readonly Descriptor114Path = '/profile/roles';
+  static readonly Descriptor114Path = '/profile/reservationDetailsModels';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -254,7 +262,7 @@ export class ProfileControllerService extends BaseService {
   }
 
   /** Path part for operation `descriptor115()` */
-  static readonly Descriptor115Path = '/profile/userModels';
+  static readonly Descriptor115Path = '/profile/reservationModels';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -296,6 +304,100 @@ export class ProfileControllerService extends BaseService {
    */
   descriptor115$Json(params?: Descriptor115$Json$Params, context?: HttpContext): Observable<JsonSchema> {
     return this.descriptor115$Json$Response(params, context).pipe(
+      map((r: StrictHttpResponse<JsonSchema>): JsonSchema => r.body)
+    );
+  }
+
+  /** Path part for operation `descriptor116()` */
+  static readonly Descriptor116Path = '/profile/roles';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `descriptor116$Any()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  descriptor116$Any$Response(params?: Descriptor116$Any$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+    return descriptor116$Any(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `descriptor116$Any$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  descriptor116$Any(params?: Descriptor116$Any$Params, context?: HttpContext): Observable<string> {
+    return this.descriptor116$Any$Response(params, context).pipe(
+      map((r: StrictHttpResponse<string>): string => r.body)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `descriptor116$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  descriptor116$Json$Response(params?: Descriptor116$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<JsonSchema>> {
+    return descriptor116$Json(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `descriptor116$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  descriptor116$Json(params?: Descriptor116$Json$Params, context?: HttpContext): Observable<JsonSchema> {
+    return this.descriptor116$Json$Response(params, context).pipe(
+      map((r: StrictHttpResponse<JsonSchema>): JsonSchema => r.body)
+    );
+  }
+
+  /** Path part for operation `descriptor117()` */
+  static readonly Descriptor117Path = '/profile/userModels';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `descriptor117$Any()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  descriptor117$Any$Response(params?: Descriptor117$Any$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+    return descriptor117$Any(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `descriptor117$Any$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  descriptor117$Any(params?: Descriptor117$Any$Params, context?: HttpContext): Observable<string> {
+    return this.descriptor117$Any$Response(params, context).pipe(
+      map((r: StrictHttpResponse<string>): string => r.body)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `descriptor117$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  descriptor117$Json$Response(params?: Descriptor117$Json$Params, context?: HttpContext): Observable<StrictHttpResponse<JsonSchema>> {
+    return descriptor117$Json(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `descriptor117$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  descriptor117$Json(params?: Descriptor117$Json$Params, context?: HttpContext): Observable<JsonSchema> {
+    return this.descriptor117$Json$Response(params, context).pipe(
       map((r: StrictHttpResponse<JsonSchema>): JsonSchema => r.body)
     );
   }

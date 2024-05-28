@@ -28,4 +28,4 @@ export function getMotorcycleSpecById(http: HttpClient, rootUrl: string, params:
   );
 }
 
-getMotorcycleSpecById.PATH = '/reservation/{id}';
+getMotorcycleSpecById.PATH = '/motorcycle/{id}';

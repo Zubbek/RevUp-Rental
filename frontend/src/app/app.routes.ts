@@ -8,6 +8,7 @@ import {MotorcyclesComponent} from "./motorcycles/motorcycles.component";
 import {FavouritesComponent} from "./favourites/favourites.component";
 import {AdminComponent} from "./admin/admin.component";
 import {NgModule} from "@angular/core";
+import {MotorcycleComponent} from "./motorcycle/motorcycle.component";
 
 export const routes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -16,6 +17,7 @@ export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'reservation/:id', component: ReservationComponent},
   {path: 'motorcycles/:category', component: MotorcyclesComponent },
+  {path: 'motorcycle/:id', component: MotorcycleComponent },
   {path: 'favourites', component: FavouritesComponent},
   {path: 'admin', component: AdminComponent},
   { path: '**', redirectTo: '' }

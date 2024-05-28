@@ -26,4 +26,4 @@ export function descriptor114$Json(http: HttpClient, rootUrl: string, params?: D
   );
 }
 
-descriptor114$Json.PATH = '/profile/roles';
+descriptor114$Json.PATH = '/profile/reservationDetailsModels';

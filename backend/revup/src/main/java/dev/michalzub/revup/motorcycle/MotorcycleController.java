@@ -21,13 +21,20 @@ public class MotorcycleController {
     return ResponseEntity.ok(motorcyclesByCategory);
   }
 
-  @GetMapping("/motorcycle/{category}")
+  @GetMapping("/motorcycles/{category}")
   public ResponseEntity<List<MotorcycleModel>> getMotorcyclesFromCategory(@PathVariable String category) {
     List<MotorcycleModel> motorcycles = motorcycleService.getMotorcyclesByCategory(category);
     return ResponseEntity.ok(motorcycles);
   }
 
-  @GetMapping("/reservation/{id}")
+//  @GetMapping("/reservation/{id}")
+//  public ResponseEntity<MotorcycleDetailsModel> getMotorcycleSpecById(@PathVariable Integer id) {
+//    return motorcycleService.getMotorcycleSpecByMotorcycleId(id)
+//      .map(ResponseEntity::ok)
+//      .orElse(ResponseEntity.notFound().build());
+//  }
+
+    @GetMapping("/motorcycle/{id}")
   public ResponseEntity<MotorcycleDetailsModel> getMotorcycleSpecById(@PathVariable Integer id) {
     return motorcycleService.getMotorcycleSpecByMotorcycleId(id)
       .map(ResponseEntity::ok)

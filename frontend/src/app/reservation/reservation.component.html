@@ -1,4 +1,4 @@
-<nav class="bg-gray-800 bg-opacity-30 border-gray-200 dark:bg-gray-800 ">
+<nav class="bg-gray-800 bg-opacity-30 border-gray-200 dark:bg-gray-800 " xmlns="http://www.w3.org/1999/html">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
     <div class="flex justify-center items-center">
       <img class="w-40 h-36 " src="/assets/images/2-removebg-preview.png" alt="logo">
@@ -25,163 +25,6 @@
     </div>
   </div>
 </nav>
-<img class="p-8 rounded-t-lg" src="{{image}}" />
-
-<!--Tech specification panel-->
-<div *ngIf="motorcycleDetails" class="flex flex-col justify-items-center my-20 mx-5" >
-  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white">{{company}} {{model}}</h5>
-  <p class="mb-3 font-normal text-xl text-gray-700 dark:text-gray-400">{{category}}</p>
-  <div class="flex justify-start">
-    <button type="submit" (click)="addToFavourites(Number(id))" class="text-white justify-self-center bg-gray-700 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to Favourites</button>
-  </div>
-</div>
-
-<div class="relative overflow-x-auto">
-  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-    <tr>
-      <th scope="col" class="px-6 py-3">
-        Engine
-      </th>
-      <th scope="col" class="px-6 py-3">
-        Power
-      </th>
-      <th scope="col" class="px-6 py-3">
-        Weight
-      </th>
-      <th scope="col" class="px-6 py-3">
-        Gearbox
-      </th>
-      <th scope="col" class="px-6 py-3">
-        Max-Speed
-      </th>
-      <th scope="col" class="px-6 py-3">
-        Fuel-Consumption
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        {{motorcycleDetails?.engine}}
-      </th>
-      <td class="px-6 py-4">
-        {{motorcycleDetails?.power}}
-      </td>
-      <td class="px-6 py-4">
-        {{motorcycleDetails?.weight}}
-      </td>
-      <td class="px-6 py-4">
-        {{motorcycleDetails?.gearbox}}
-      </td>
-      <td class="px-6 py-4">
-        {{motorcycleDetails?.maxSpeed}}
-      </td>
-      <td class="px-6 py-4">
-        {{motorcycleDetails?.fuelConsumption}}
-      </td>
-    </tr>
-    </tbody>
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-    <tr>
-      <th scope="col" class="px-6 py-3">
-        Front-Tyre
-      </th>
-      <th scope="col" class="px-6 py-3">
-        Rear-Tyre
-      </th>
-      <th scope="col" class="px-6 py-3">
-        Fuel-Capacity
-      </th>
-      <th scope="col" class="px-6 py-3">
-        Seat-Height
-      </th>
-      <th scope="col" class="px-6 py-3">
-        Transmision
-      </th>
-      <th scope="col" class="px-6 py-3">
-       Year
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        {{motorcycleDetails?.frontTyre}}
-      </th>
-      <td class="px-6 py-4">
-        {{motorcycleDetails?.rearTyre}}
-      </td>
-      <td class="px-6 py-4">
-        {{motorcycleDetails?.fuelCapacity}}
-      </td>
-      <td class="px-6 py-4">
-        {{motorcycleDetails?.seatHeight}}
-      </td>
-      <td class="px-6 py-4">
-        {{motorcycleDetails?.transmition}}
-      </td>
-      <td class="px-6 py-4">
-        {{motorcycleDetails?.year}}
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
-
-<!--pricing panel-->
-<div class="flex flex-col justify-items-center my-20 mx-5" >
-  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-700 dark:text-white">PRICING</h5>
-  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">RENT</p>
-</div>
-
-<div class="relative overflow-x-auto">
-  <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-    <tr>
-      <th scope="col" class="px-6 py-3">
-        RENT-PERIOD
-      </th>
-      <th scope="col" class="px-6 py-3">
-        COST
-    </thead>
-    <tbody>
-    <tbody>
-    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        24H
-      </th>
-      <td class="px-6 py-4">
-        250
-      </td>
-    </tr>
-    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        WEEKEND
-      </th>
-      <td class="px-6 py-4">
-        500
-      </td>
-    </tr>
-    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        WEEK
-      </th>
-      <td class="px-6 py-4">
-        2250
-      </td>
-    </tr>
-    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        MONTH
-      </th>
-      <td class="px-6 py-4">
-        5500
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
 
 <!--reserve panel-->
 <div class="flex flex-col justify-items-center my-20 mx-5" >
@@ -189,65 +32,83 @@
   <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">FORM</p>
 </div>
 
-<form class="max-w-md mx-auto">
-  <!--Date of rent options-->
-<!--  <div date-rangepicker class="flex items-center my-10">-->
-<!--    <div class="relative">-->
-<!--      <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">-->
-<!--        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">-->
-<!--          <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>-->
-<!--        </svg>-->
-<!--      </div>-->
-<!--      <input name="start"  type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date start">-->
-<!--    </div>-->
-<!--    <span class="mx-4 text-gray-500">to</span>-->
-<!--    <div class="relative">-->
-<!--      <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">-->
-<!--        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">-->
-<!--          <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>-->
-<!--        </svg>-->
-<!--      </div>-->
-<!--      <input name="end" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date end">-->
-<!--    </div>-->
-<!--  </div>-->
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()" class="justify-center mx-8">
   <mat-form-field appearance="fill">
-    <mat-label>Enter a date range</mat-label>
-    <mat-date-range-input [rangePicker]="picker">
-      <input matStartDate placeholder="Start date">
-      <input matEndDate placeholder="End date">
-    </mat-date-range-input>
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-date-range-picker #picker></mat-date-range-picker>
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="customerEmail" required>
+    <mat-error *ngIf="reservationForm.get('customerEmail')?.hasError('required')">
+      Email is required
+    </mat-error>
+    <mat-error *ngIf="reservationForm.get('customerEmail')?.hasError('email')">
+      Invalid email format
+    </mat-error>
   </mat-form-field>
 
-  <!--email-->
-  <div class="relative z-0 w-full mb-5 group">
-    <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-    <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="customerName" required>
+    <mat-error *ngIf="reservationForm.get('customerName')?.hasError('required')">
+      Name is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Surname</mat-label>
+    <input matInput formControlName="customerSurname" required>
+    <mat-error *ngIf="reservationForm.get('customerSurname')?.hasError('required')">
+      Surname is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Phone</mat-label>
+    <input matInput formControlName="customerPhone" required>
+    <mat-error *ngIf="reservationForm.get('customerPhone')?.hasError('required')">
+      Phone number is required
+    </mat-error>
+    <mat-error *ngIf="reservationForm.get('customerPhone')?.hasError('pattern')">
+      Invalid phone number format
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Start Date</mat-label>
+    <input matInput [matDatepicker]="startDatePicker" formControlName="startDate" [matDatepickerFilter]="myFilter" required>
+    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #startDatePicker></mat-datepicker>
+    <mat-error *ngIf="reservationForm.get('startDate')?.hasError('required')">
+      Start date is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>End Date</mat-label>
+    <input matInput [matDatepicker]="endDatePicker" formControlName="endDate" [matDatepickerFilter]="myFilter" required>
+    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #endDatePicker></mat-datepicker>
+    <mat-error *ngIf="reservationForm.get('endDate')?.hasError('required')">
+      End date is required
+    </mat-error>
+    <mat-error *ngIf="reservationForm.errors?.['dateRangeInvalid']">
+      Selected date range is unavailable
+    </mat-error>
+  </mat-form-field>
+
+  <input type="hidden" formControlName="motorcycleId">
+
+  <div *ngIf="reservationForm.get('totalPrice')?.value">
+    <p class="text-xl">The rental cost for this period is:: {{ reservationForm.get('totalPrice')?.value | currency }}</p>
   </div>
 
-  <!--first name and last name-->
-  <div class="grid md:grid-cols-2 md:gap-6 mx-0 my-0">
-    <div class="relative z-0 w-full mb-5 group">
-      <input type="text" name="floating_first_name" id="floating_first_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_first_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First name</label>
-    </div>
-    <div class="relative z-0 w-full mb-5 group">
-      <input type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last name</label>
-    </div>
-  </div>
-
-  <!--phone-->
-  <div class="relative z-0 w-full mb-5 group">
-    <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-    <label for="floating_phone" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone number (+48-111-222-333)</label>
-  </div>
   <div class="flex justify-center">
-    <button type="submit" class="text-white justify-self-center bg-gray-700 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+    <button type="submit" class="text-white justify-self-center bg-gray-700 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      Make Reservation
+    </button>
   </div>
 </form>
-<footer class="bg-gray-400 bg-opacity-20 rounded-lg shadow my-40 dark:bg-gray-800">
+
+<!--footer-->
+<footer class="bg-gray-400 bg-opacity-20 rounded-lg shadow my-40 dark:bg-gray-800 justify-end">
   <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
       <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" class="hover:underline">RevUp-Rental™</a>. All Rights Reserved.
     </span>

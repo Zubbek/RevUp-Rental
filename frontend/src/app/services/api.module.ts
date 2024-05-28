@@ -14,12 +14,18 @@ import { MotorcycleModelEntityControllerService } from './services/motorcycle-mo
 import { MotorcycleModelSearchControllerService } from './services/motorcycle-model-search-controller.service';
 import { MotorcycleModelPropertyReferenceControllerService } from './services/motorcycle-model-property-reference-controller.service';
 import { ProfileControllerService } from './services/profile-controller.service';
+import { ReservationDetailsModelEntityControllerService } from './services/reservation-details-model-entity-controller.service';
+import { ReservationDetailsModelPropertyReferenceControllerService } from './services/reservation-details-model-property-reference-controller.service';
+import { ReservationModelEntityControllerService } from './services/reservation-model-entity-controller.service';
+import { ReservationModelSearchControllerService } from './services/reservation-model-search-controller.service';
+import { ReservationModelPropertyReferenceControllerService } from './services/reservation-model-property-reference-controller.service';
 import { RoleEntityControllerService } from './services/role-entity-controller.service';
 import { RoleSearchControllerService } from './services/role-search-controller.service';
 import { UserModelEntityControllerService } from './services/user-model-entity-controller.service';
 import { UserModelSearchControllerService } from './services/user-model-search-controller.service';
 import { UserModelPropertyReferenceControllerService } from './services/user-model-property-reference-controller.service';
 import { UserControllerService } from './services/user-controller.service';
+import { ReservationControllerService } from './services/reservation-controller.service';
 import { AuthenticationService } from './services/authentication.service';
 import { FavouritesControllerService } from './services/favourites-controller.service';
 import { MotorcycleControllerService } from './services/motorcycle-controller.service';
@@ -42,12 +48,18 @@ import { MotorcycleControllerService } from './services/motorcycle-controller.se
     MotorcycleModelSearchControllerService,
     MotorcycleModelPropertyReferenceControllerService,
     ProfileControllerService,
+    ReservationDetailsModelEntityControllerService,
+    ReservationDetailsModelPropertyReferenceControllerService,
+    ReservationModelEntityControllerService,
+    ReservationModelSearchControllerService,
+    ReservationModelPropertyReferenceControllerService,
     RoleEntityControllerService,
     RoleSearchControllerService,
     UserModelEntityControllerService,
     UserModelSearchControllerService,
     UserModelPropertyReferenceControllerService,
     UserControllerService,
+    ReservationControllerService,
     AuthenticationService,
     FavouritesControllerService,
     MotorcycleControllerService,

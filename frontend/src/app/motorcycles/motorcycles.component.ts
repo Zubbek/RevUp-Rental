@@ -55,7 +55,7 @@ export class MotorcyclesComponent implements OnInit {
       price: motorcycle.price,
       image: motorcycle.image
     });
-    this.router.navigate(['/reservation', motorcycle.id], {
+    this.router.navigate(['/motorcycle', motorcycle.id], { //bylo reservation
       state: {
         category: motorcycle.category,
         company: motorcycle.company,
