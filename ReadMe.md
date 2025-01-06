@@ -1,8 +1,8 @@
 
 # RevUp-Rental
 
-It is a web application which is still beeing developed. I am using Java, Spring Boot, Angular, Docker adn postgreSQL.
-The main pourpose of this app is to lern more about Java and Angular as it is my first attempt to use Framework in building app.
+It is a web application. I used Java, Spring Boot, Angular, Docker adn postgreSQL.
+The main pourpose of this app was to lern more about Java and Angular as it was my first attempt to use Framework in building app.
 
 
 ## Tech Stack
